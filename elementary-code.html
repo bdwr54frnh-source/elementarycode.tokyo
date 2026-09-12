@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elementary Code</title>
+</head>
+<body>
+
+<div id="ec-nav-back" style="max-width:640px;margin:0 auto;padding:24px 16px 0;font-family:Arial, Helvetica, sans-serif;">
+  <a href="index.html" style="color:#000000;text-decoration:underline;font-size:0.9em;">&larr; トップへ戻る / Back to Top</a>
+</div>
+
+<style>.lang-ja { display: none; }</style>
+
+<div id="lang-toggle-bar" style="max-width:640px;margin:0 auto;padding:0 16px;font-family:Arial, Helvetica, sans-serif;">
+  <button type="button" onclick="ecToggleLangAll()" style="background:#ffffff;color:#000000;border:1px solid #000000;font-family:inherit;font-size:0.85em;padding:6px 14px;cursor:pointer;">
+    <span class="lang-toggle-label">日本語</span>
+  </button>
+</div>
+
+<div id="elementary-code-section" style="background:#ffffff;color:#000000;font-family:Arial, Helvetica, sans-serif;max-width:640px;margin:0 auto;padding:20px 16px 0;line-height:1.7;">
+  <style>
+    #elementary-code-section h2 { font-size: 1.3em; font-weight: bold; margin: 0 0 16px; }
+    #elementary-code-section p { margin: 0 0 14px; font-size: 0.95em; }
+    #elementary-code-section h3 { font-size: 1em; font-weight: bold; margin: 24px 0 10px; }
+    #elementary-code-section ol { margin: 0 0 14px; padding-left: 22px; font-size: 0.95em; }
+    #elementary-code-section li { margin-bottom: 6px; }
+  </style>
+
+  <div class="lang-en">
+    <h2>Elementary Code</h2>
+    <p>Elementary Code is a new authentication code generated within the dedicated application.</p>
+    <p>The code is embedded in a transmission icon. By checking the icon with a compatible application and device, the connection with the other party can be authenticated.</p>
+    <p>One of its key features is that communication can be initiated through a dedicated transmission icon without directly sharing a conventional telephone number.</p>
+
+    <h3>How it works</h3>
+    <ol>
+      <li>Generate a transmission icon within the dedicated application.</li>
+      <li>The Elementary Code is embedded in the icon.</li>
+      <li>The recipient checks and authenticates the code using the compatible application.</li>
+      <li>Once authentication is completed, communication can begin.</li>
+    </ol>
+
+    <p>Elementary Code is not simply a displayed number or character string. It is designed to authenticate the relationship between the transmission icon and the other party by combining the dedicated application with a compatible device.</p>
+    <p>Authentication is designed to be completed in a short period of time.</p>
+    <p>For security and technical reasons, the specific generation, verification algorithms, and internal technical specifications are not publicly disclosed.</p>
+
+    <h3>What "uniqueness" means</h3>
+    <p>In practice, this idea of uniqueness means that no two Elementary Codes are ever the same, and no code is issued twice. Even if two people checked at the exact same moment, they would not be looking at the same code. It is less like a printed serial number and more like a single key that only ever exists once, in one place, at one time.</p>
+  </div>
+
+  <div class="lang-ja">
+    <h2>エレメンタリーコード</h2>
+    <p>エレメンタリーコードは、専用アプリの中で生成される、新しい認証コードです。</p>
+    <p>発信アイコンに組み込まれたエレメンタリーコードを、対応するアプリと端末で確認することで、相手とのつながりを認証します。</p>
+    <p>通常の電話番号を直接伝えることなく、専用の発信アイコンを通してコミュニケーションを始められることが大きな特徴です。</p>
+
+    <h3>かんたんな仕組み</h3>
+    <ol>
+      <li>専用アプリで発信アイコンを生成します。</li>
+      <li>アイコンにエレメンタリーコードが組み込まれます。</li>
+      <li>相手側の対応アプリでコードを確認・認証します。</li>
+      <li>認証が完了すると、コミュニケーションを開始できます。</li>
+    </ol>
+
+    <p>エレメンタリーコードは、単なる数字や文字列を表示するためのものではありません。専用アプリと対応する端末を組み合わせて確認することで、発信アイコンと相手との関係を認証するための仕組みです。</p>
+    <p>認証は短時間で行える設計になっています。</p>
+    <p>安全性と技術上の理由から、エレメンタリーコードを生成・検証する具体的なアルゴリズムや内部仕様の詳細は公開していません。</p>
+
+    <h3>「一意性」とは何か</h3>
+    <p>「一意性(uniqueness)」とは、簡単に言うと、まったく同じエレメンタリーコードが二つと存在せず、同じコードが二度発行されることもない、という意味です。仮に同じ瞬間に二人が確認したとしても、二人が見ているコードが同じものになることはありません。印刷されたシリアル番号というより、その瞬間・その場所にしか存在しない一本の鍵のようなものだとイメージすると分かりやすいと思います。</p>
+  </div>
+</div>
+
+<div id="ec-why-different" style="background:#ffffff;color:#000000;font-family:Arial, Helvetica, sans-serif;max-width:640px;margin:0 auto;padding:20px 16px 0;line-height:1.7;">
+  <div class="lang-en">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">Why Elementary Code Is Different</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">Elementary Code was developed from a simple question:</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Why did a system like this not already exist?</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Before submitting the patent application, existing technologies and patents were investigated. If the same invention had already been patented, there would have been no reason to submit an application for the same idea.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">The developer also considered another question:</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">If I tried to reproduce this system myself, could I simply copy it?</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">The concept was designed so that it cannot simply be reproduced from what is visible.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">If someone does not know where the actual code exists at a particular moment, or how it is connected to the corresponding system and device, copying what is visible would not reproduce the system itself.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">This difficulty in copying and reproducing the system is one of the fundamental ideas behind Elementary Code.</p>
+
+    <h3 style="font-size:1em;font-weight:bold;margin:24px 0 10px;">A Future Application: Vehicle Security</h3>
+    <p style="margin:0 0 14px;font-size:0.95em;">The concept of Elementary Code is not limited to communication.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">One planned future application is vehicle anti-theft technology.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Vehicle theft remains a serious issue, and high-value vehicles can become targets of theft.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">The idea is to incorporate Elementary Code into a vehicle key and security system.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">There is an important distinction between making theft absolutely impossible and making undamaged, unauthorized access extremely difficult.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">If someone is willing to destroy a vehicle in order to steal it, no security system can reasonably guarantee that the physical object can never be taken.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">The important question is:</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Can a vehicle be opened quickly and without leaving any damage?</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">With a conventional key, copying the key can allow the copied key to be used for unlocking. The person operating the copied key does not necessarily need to be the original owner.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">With an Elementary Code-based system, unlocking would also require the designated device.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">The security concept is therefore based on a combination of:</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Correct Elementary Code + Designated Device + Device Authentication</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">For compatible iOS devices, this could also be combined with device-level authentication such as facial recognition.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">This means that simply copying a conventional key would not be sufficient to operate the system.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">The future objective is therefore to make undamaged, short-time theft extremely difficult.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">This vehicle-security application is planned as a future development following the Google version of the system. It should be presented as a development concept, not as a currently proven vehicle-security product.</p>
+  </div>
+
+  <div class="lang-ja">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">なぜエレメンタリーコードは違うのか</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">エレメンタリーコードは、ひとつのシンプルな問いから生まれました。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">なぜ、このような仕組みがこれまで存在しなかったのか。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">特許出願の前に、既存の技術や特許を調査しました。もし同じ発明がすでに特許化されていたなら、同じアイデアで出願する理由はありませんでした。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">開発者はもうひとつの問いも考えました。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">自分でこの仕組みを再現しようとしたとき、単純にコピーできてしまうだろうか。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">この仕組みは、目に見える部分だけからは簡単に再現できないように設計されています。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">ある瞬間に実際のコードがどこに存在し、対応するシステムや端末とどのように結びついているかが分からなければ、見えているものをコピーしても、仕組みそのものを再現することにはなりません。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">このコピー・再現のしづらさが、エレメンタリーコードの根底にある考え方のひとつです。</p>
+
+    <h3 style="font-size:1em;font-weight:bold;margin:24px 0 10px;">将来的な応用構想:車両セキュリティ</h3>
+    <p style="margin:0 0 14px;font-size:0.95em;">エレメンタリーコードの考え方は、通信だけに限定されません。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">将来的な応用のひとつとして、車両の盗難防止技術を構想しています。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">車両の盗難は依然として深刻な問題であり、高額な車両は盗難の対象になりやすいという現状があります。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">エレメンタリーコードを車両のキーおよびセキュリティシステムに組み込むという発想です。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">「盗難を絶対に不可能にすること」と「傷をつけずに不正アクセスすることを極めて困難にすること」には、重要な違いがあります。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">もし盗む側が車両を破壊する覚悟であれば、どんなセキュリティシステムでも、物理的に持ち去られないことを合理的に保証することはできません。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">重要な問いは次の点です。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">車両を、傷をつけずに短時間で開けることができるかどうか。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">従来型の鍵の場合、鍵を複製すれば、その複製された鍵で解錠できてしまいます。複製された鍵を操作する人が、必ずしも本来の所有者であるとは限りません。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">エレメンタリーコードをベースにしたシステムでは、解錠には指定された端末も必要になります。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">このセキュリティの考え方は、次の組み合わせに基づいています。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">正しいエレメンタリーコード + 指定された端末 + 端末側の認証</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">対応するiOS端末であれば、顔認証のような端末レベルの認証と組み合わせることも考えられます。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">つまり、従来の鍵を複製しただけでは、このシステムを操作するには不十分ということになります。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">将来的な目標は、傷をつけずに短時間で行われる盗難を極めて困難にすることです。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">この車両セキュリティへの応用は、Googleバージョンのシステムに続く将来的な開発として構想されているものであり、現時点で実証済みの車両セキュリティ製品として提示するものではありません。</p>
+  </div>
+</div>
+
+<div id="ec-patents" style="background:#ffffff;color:#000000;font-family:Arial, Helvetica, sans-serif;max-width:640px;margin:0 auto;padding:20px 16px 0;line-height:1.7;">
+  <div class="lang-en">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">Patent Applications</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">The following patent applications have been filed with the Japan Patent Office. These are pending applications only; no patent has been granted at this time.</p>
+    <p style="margin:0 0 4px;font-size:0.95em;">一意性コード（エレメンタリーコード）による即時認証システム</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Patent Application No. 2025-189376</p>
+    <p style="margin:0 0 4px;font-size:0.95em;">発光誘導型精製インターフェース</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Patent Application No. 2026-65348</p>
+  </div>
+
+  <div class="lang-ja">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">特許出願情報</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">以下は、特許庁に出願済みの特許出願です。いずれも出願中のものであり、現時点で特許が付与されたものはありません。</p>
+    <p style="margin:0 0 4px;font-size:0.95em;">一意性コード（エレメンタリーコード）による即時認証システム</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Patent Application No. 2025-189376</p>
+    <p style="margin:0 0 4px;font-size:0.95em;">発光誘導型精製インターフェース</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Patent Application No. 2026-65348</p>
+  </div>
+</div>
+
+<div id="ec-light-interface" style="background:#ffffff;color:#000000;font-family:Arial, Helvetica, sans-serif;max-width:640px;margin:0 auto;padding:20px 16px 64px;line-height:1.7;">
+  <div class="lang-en">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">Light-Guided Interface (発光誘導型精製インターフェース)</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">This is a separate concept from Elementary Code, developed independently.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Rather than using light purely as decoration, this concept treats light itself as an interface — a way of visually communicating status, direction, and next actions to the user.</p>
+
+    <h3 style="font-size:1em;font-weight:bold;margin:24px 0 10px;">AIR DEFLECT</h3>
+    <p style="margin:0 0 14px;font-size:0.95em;">AIR DEFLECT is an independent and important part of this interface concept, particularly in relation to the shutter's opening.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">When a shutter opens, the opening itself is treated as part of the interface. The opening, combined with light and on-screen indicators, is used to communicate the user's current state and direction — the light is not an incidental visual effect.</p>
+
+    <p style="margin:0 0 14px;font-size:0.95em;">The specific patent claims and internal technical details of this interface are not disclosed here.</p>
+  </div>
+
+  <div class="lang-ja">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">発光誘導型精製インターフェース</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">これはエレメンタリーコードとは別の、独立した構想です。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">光を単なる装飾として使うのではなく、光そのものをインターフェースとして利用し、利用者に状態・方向・次に行うべき操作などを視覚的に伝える、という考え方です。</p>
+
+    <h3 style="font-size:1em;font-weight:bold;margin:24px 0 10px;">AIR DEFLECT</h3>
+    <p style="margin:0 0 14px;font-size:0.95em;">AIR DEFLECTは、このインターフェース構想の中で独立した重要な要素であり、特にシャッターの「開口」との関係が重要です。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">シャッターが開くことで生まれる「開口」そのものをインターフェースの一部として捉え、その開口と光、画面上の表示などを組み合わせることで、利用者に状態や方向を伝える、という考え方として整理しています。光は単なる付随的な視覚効果ではありません。</p>
+
+    <p style="margin:0 0 14px;font-size:0.95em;">この仕組みに関する特許請求の詳細や内部の技術仕様は、ここでは公開していません。</p>
+  </div>
+</div>
+
+<div id="ec-self-check" style="background:#ffffff;color:#000000;font-family:Arial, Helvetica, sans-serif;max-width:640px;margin:0 auto;padding:0 16px 40px;line-height:1.7;">
+  <div class="lang-en">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">Elementary Code — A Way to Check for Yourself</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">For example, suppose someone who says they are "a friend of a friend" sends you an icon containing a photo of a soccer player.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">In this case, judging whether the person in the photo is genuinely who they claim to be — based on the image or design alone — is not something Elementary Code can determine.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">However, if what you want to confirm is whether the icon itself is genuine or a copy, actually connecting through it is the fastest way to check.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">If an icon contains only a serial number, that number is simply a manufacturing number — it cannot, by itself, be used to place a call.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">On the other hand, an icon with a correctly embedded Elementary Code will, through that code, connect properly to the party associated with that design.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Another important point is who the icon was actually sent by.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Elementary Code is not a system where simply copying an image or design lets someone else freely use it as their own. Because the code corresponds to the original sender, circumstances such as buying it from a friend, winning it at auction, or copying only the photo do not, by themselves, allow someone other than the original sender to use it freely.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">In other words, rather than judging whether the person in a photo is genuine from the image alone, the idea is to confirm whether an icon carries a legitimate Elementary Code by actually connecting through it.</p>
+  </div>
+
+  <div class="lang-ja">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">Elementary Code ― 自分でもできる見分け方</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">例えば、「友達の友達」だという人から、サッカー選手の写真が入ったアイコンが送られてきたとします。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">この場合、「この写真の人物が本人かどうか」という、写真そのもののデザインを見て判定することは、Elementary Codeだけでは行えません。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">しかし、「このアイコン自体が本物なのか、それともコピーされたものなのか」を確認したい場合は、実際に接続してみることが、いちばん早い確認方法になります。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">アイコンにシリアル番号だけが入っている場合、その番号は製造番号にすぎず、その番号だけで電話をかけることはできません。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">一方、正しいElementary Codeが組み込まれたアイコンであれば、そのコードを通じて、そのデザインに対応する相手へときちんとつながります。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">そしてもうひとつ重要なのは、「誰から送られてきたアイコンなのか」という点です。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Elementary Codeは、画像やデザインを単純にコピーしただけで、別の人が自分のものとして自由に使えてしまう仕組みではありません。送信者との対応関係があるため、友達から買った、オークションで落札した、写真だけをコピーした、といった経緯だけでは、元の送信者とは別の人が自由に使用できるわけではありません。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">つまり、写真に写っている人物が本人かどうかを画像だけで判定するのではなく、実際に接続してみることで、そのアイコンが正規のElementary Codeを持つものかどうかを確認する、という考え方です。</p>
+  </div>
+</div>
+
+<div id="ec-silent-design" style="background:#ffffff;color:#000000;font-family:Arial, Helvetica, sans-serif;max-width:640px;margin:0 auto;padding:0 16px 40px;line-height:1.7;">
+  <div class="lang-en">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">Silent Design</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">The device is built with a silent design — no sound is played through a speaker.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">Sound is only ever heard through connected headphones, or through the earpiece during a call, just like a regular phone call.</p>
+  </div>
+  <div class="lang-ja">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">静音設計</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">本製品はスピーカーから音を出さない、静音設計になっています。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">音が聞こえるのは、ヘッドフォンを接続した時、または通話中の受話口(耳から聞こえる音)のみです。</p>
+  </div>
+</div>
+
+<div id="ec-boost-preview" style="background:#ffffff;color:#000000;font-family:Arial, Helvetica, sans-serif;max-width:640px;margin:0 auto;padding:0 16px 40px;line-height:1.7;">
+  <div class="lang-en">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">Coming Soon: Subscription Boost Colors</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">Additional color variations for the Subscription Boost line are currently in planning.</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">At this time, only the white icon is available.</p>
+  </div>
+  <div class="lang-ja">
+    <h2 style="font-size:1.3em;font-weight:bold;margin:0 0 16px;">近日予定：サブスクブースト カラー展開</h2>
+    <p style="margin:0 0 14px;font-size:0.95em;">サブスクブーストの追加カラーは、現在準備中です。</p>
+    <p style="margin:0 0 14px;font-size:0.95em;">現時点でご用意があるのは白色のみとなります。</p>
+  </div>
+</div>
+
+<div id="ec-inspection-link" style="background:#ffffff;color:#000000;font-family:Arial, Helvetica, sans-serif;max-width:640px;margin:0 auto;padding:0 16px 64px;line-height:1.7;">
+  <a href="https://waseda-inspection.com" style="color:#000000;text-decoration:underline;font-size:0.95em;display:block;">Waseda Inspection<br>審査・検査サポートサイト<br>https://waseda-inspection.com</a>
+</div>
+
+<script>
+function ecToggleLangAll() {
+  var showJa = document.body.getAttribute('data-lang') !== 'ja';
+  document.body.setAttribute('data-lang', showJa ? 'ja' : 'en');
+
+  var ens = document.querySelectorAll('.lang-en');
+  var jas = document.querySelectorAll('.lang-ja');
+  for (var i = 0; i < ens.length; i++) { ens[i].style.display = showJa ? 'none' : ''; }
+  for (var i = 0; i < jas.length; i++) { jas[i].style.display = showJa ? '' : 'none'; }
+
+  var labels = document.querySelectorAll('.lang-toggle-label');
+  for (var i = 0; i < labels.length; i++) { labels[i].textContent = showJa ? 'English' : '日本語'; }
+}
+</script>
+
+</body>
+</html>
