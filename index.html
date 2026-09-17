@@ -64,10 +64,21 @@
 </script>
 <div id="wc-root">
   <style>
-    #wc-root { background:#fff; color:#000; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.9; }
+    #wc-root {
+      background:#fff;
+      color:#000;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:26px;
+      line-height:1.9;
+      padding:22px 28px 30px;
+      font-weight:600;
+    }
     #wc-list { margin:0; padding:0; }
-    #wc-list .wc-time { white-space:nowrap; }
+    #wc-list .wc-time { white-space:nowrap; font-weight:700; }
     #wc-list .wc-sep { white-space:pre; }
+    @media (max-width:720px) {
+      #wc-root { font-size:19px; line-height:1.75; padding:18px 16px 24px; }
+    }
   </style>
   <div id="wc-list"></div>
   <script>
@@ -83,17 +94,35 @@
 
 <div id="elementary-code-section">
   <style>
-    #elementary-code-section { background:#fff; color:#000; font-family:Arial,Helvetica,sans-serif; max-width:640px; margin:0 auto; padding:32px 16px 64px; line-height:1.7; }
-    #elementary-code-section h2 { font-size:1.3em; font-weight:bold; margin:0 0 16px; }
-    #elementary-code-section p { margin:0 0 14px; font-size:.95em; }
-    #elementary-code-section h3 { font-size:1em; font-weight:bold; margin:24px 0 10px; }
-    #elementary-code-section ol { margin:0 0 14px; padding-left:22px; font-size:.95em; }
-    #elementary-code-section li { margin-bottom:6px; }
-    #ec-lang-toggle { background:#fff; color:#000; border:1px solid #000; font-family:inherit; font-size:.85em; padding:6px 14px; cursor:pointer; margin-bottom:20px; }
+    #elementary-code-section {
+      background:#fff;
+      color:#000;
+      font-family:Arial,Helvetica,sans-serif;
+      max-width:1100px;
+      margin:0 auto;
+      padding:56px 34px 80px;
+      line-height:1.8;
+      font-size:22px;
+    }
+    #elementary-code-section h2 { font-size:36px; font-weight:bold; margin:0 0 22px; line-height:1.35; }
+    #elementary-code-section p { margin:0 0 20px; font-size:22px; }
+    #elementary-code-section h3 { font-size:28px; font-weight:bold; margin:34px 0 16px; }
+    #elementary-code-section ol { margin:0 0 22px; padding-left:30px; font-size:22px; }
+    #elementary-code-section li { margin-bottom:10px; }
+    #ec-lang-toggle { background:#fff; color:#000; border:2px solid #000; font-family:inherit; font-size:20px; padding:10px 18px; cursor:pointer; margin-bottom:28px; }
     #ec-lang-toggle:hover { background:#000; color:#fff; }
     #ec-content-ja { display:none; }
-    #site-nav { border-top:1px solid #ddd; margin-top:32px; padding-top:24px; display:flex; flex-wrap:wrap; gap:10px; }
-    #site-nav a { color:#000; border:1px solid #000; border-radius:999px; padding:8px 12px; text-decoration:none; font-weight:700; font-size:.85em; }
+    #site-nav { border-top:2px solid #ddd; margin-top:42px; padding-top:30px; display:flex; flex-wrap:wrap; gap:14px; }
+    #site-nav a { color:#000; border:2px solid #000; border-radius:999px; padding:12px 18px; text-decoration:none; font-weight:700; font-size:18px; }
+    @media (max-width:720px) {
+      #elementary-code-section { padding:36px 18px 60px; font-size:18px; }
+      #elementary-code-section h2 { font-size:30px; }
+      #elementary-code-section h3 { font-size:24px; }
+      #elementary-code-section p,
+      #elementary-code-section ol { font-size:18px; }
+      #ec-lang-toggle { font-size:17px; }
+      #site-nav a { font-size:16px; }
+    }
   </style>
   <button id="ec-lang-toggle" type="button" onclick="var en=document.getElementById('ec-content-en');var ja=document.getElementById('ec-content-ja');var btn=document.getElementById('ec-lang-toggle');if(en.style.display==='none'){en.style.display='';ja.style.display='none';btn.textContent='日本語';}else{en.style.display='none';ja.style.display='';btn.textContent='English';}">日本語</button>
   <div id="ec-content-en">
