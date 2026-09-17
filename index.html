@@ -36,33 +36,13 @@
   transition: transform 2s ease;
 }
 
-#shutter-top {
-  top: 0;
-}
-
-#shutter-bottom {
-  bottom: 0;
-}
-
-#hero-intro.opening #shutter-top {
-  transform: translateY(-100%);
-}
-
-#hero-intro.opening #shutter-bottom {
-  transform: translateY(100%);
-}
-
-#hero-intro.closing #shutter-top {
-  transform: translateY(0);
-}
-
-#hero-intro.closing #shutter-bottom {
-  transform: translateY(0);
-}
-
-#hero-intro.done {
-  display: none;
-}
+#shutter-top { top: 0; }
+#shutter-bottom { bottom: 0; }
+#hero-intro.opening #shutter-top { transform: translateY(-100%); }
+#hero-intro.opening #shutter-bottom { transform: translateY(100%); }
+#hero-intro.closing #shutter-top { transform: translateY(0); }
+#hero-intro.closing #shutter-bottom { transform: translateY(0); }
+#hero-intro.done { display: none; }
 </style>
 
 <div id="hero-intro">
@@ -75,217 +55,74 @@
 (function () {
   var intro = document.getElementById('hero-intro');
   var video = document.getElementById('hero-video');
-
   video.muted = true;
   video.play().catch(function () {});
-
-  setTimeout(function () {
-    intro.classList.add('opening');
-  }, 200);
-
-  setTimeout(function () {
-    intro.classList.remove('opening');
-    intro.classList.add('closing');
-  }, 4200);
-
-  setTimeout(function () {
-    intro.classList.add('done');
-  }, 6000);
+  setTimeout(function () { intro.classList.add('opening'); }, 200);
+  setTimeout(function () { intro.classList.remove('opening'); intro.classList.add('closing'); }, 4200);
+  setTimeout(function () { intro.classList.add('done'); }, 6000);
 })();
 </script>
 <div id="wc-root">
   <style>
-    #wc-root {
-      background: #ffffff;
-      color: #000000;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      line-height: 1.9;
-    }
-    #wc-list {
-      margin: 0;
-      padding: 0;
-    }
-    #wc-list .wc-time {
-      white-space: nowrap;
-    }
-    #wc-list .wc-sep {
-      white-space: pre;
-    }
+    #wc-root { background:#fff; color:#000; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.9; }
+    #wc-list { margin:0; padding:0; }
+    #wc-list .wc-time { white-space:nowrap; }
+    #wc-list .wc-sep { white-space:pre; }
   </style>
   <div id="wc-list"></div>
   <script>
   (function () {
-    var COUNTRIES = [["Algeria", "Africa/Algiers"], ["Angola", "Africa/Luanda"], ["Benin", "Africa/Porto-Novo"], ["Botswana", "Africa/Gaborone"], ["Burkina Faso", "Africa/Ouagadougou"], ["Burundi", "Africa/Bujumbura"], ["Cabo Verde", "Atlantic/Cape_Verde"], ["Cameroon", "Africa/Douala"], ["Central African Republic", "Africa/Bangui"], ["Chad", "Africa/Ndjamena"], ["Comoros", "Indian/Comoro"], ["Congo-Brazzaville", "Africa/Brazzaville"], ["Congo-Kinshasa", "Africa/Kinshasa"], ["Cote d'Ivoire", "Africa/Abidjan"], ["Djibouti", "Africa/Djibouti"], ["Egypt", "Africa/Cairo"], ["Equatorial Guinea", "Africa/Malabo"], ["Eritrea", "Africa/Asmara"], ["Eswatini", "Africa/Mbabane"], ["Ethiopia", "Africa/Addis_Ababa"], ["Gabon", "Africa/Libreville"], ["Gambia", "Africa/Banjul"], ["Ghana", "Africa/Accra"], ["Guinea", "Africa/Conakry"], ["Guinea-Bissau", "Africa/Bissau"], ["Kenya", "Africa/Nairobi"], ["Lesotho", "Africa/Maseru"], ["Liberia", "Africa/Monrovia"], ["Libya", "Africa/Tripoli"], ["Madagascar", "Indian/Antananarivo"], ["Malawi", "Africa/Blantyre"], ["Mali", "Africa/Bamako"], ["Mauritania", "Africa/Nouakchott"], ["Mauritius", "Indian/Mauritius"], ["Morocco", "Africa/Casablanca"], ["Mozambique", "Africa/Maputo"], ["Namibia", "Africa/Windhoek"], ["Niger", "Africa/Niamey"], ["Nigeria", "Africa/Lagos"], ["Rwanda", "Africa/Kigali"], ["Sao Tome and Principe", "Africa/Sao_Tome"], ["Senegal", "Africa/Dakar"], ["Seychelles", "Indian/Mahe"], ["Sierra Leone", "Africa/Freetown"], ["Somalia", "Africa/Mogadishu"], ["South Africa", "Africa/Johannesburg"], ["South Sudan", "Africa/Juba"], ["Sudan", "Africa/Khartoum"], ["Tanzania", "Africa/Dar_es_Salaam"], ["Togo", "Africa/Lome"], ["Tunisia", "Africa/Tunis"], ["Uganda", "Africa/Kampala"], ["Zambia", "Africa/Lusaka"], ["Zimbabwe", "Africa/Harare"], ["Antigua and Barbuda", "America/Antigua"], ["Bahamas", "America/Nassau"], ["Barbados", "America/Barbados"], ["Belize", "America/Belize"], ["Canada", "America/Toronto"], ["Costa Rica", "America/Costa_Rica"], ["Cuba", "America/Havana"], ["Dominica", "America/Dominica"], ["Dominican Republic", "America/Santo_Domingo"], ["El Salvador", "America/El_Salvador"], ["Grenada", "America/Grenada"], ["Guatemala", "America/Guatemala"], ["Haiti", "America/Port-au-Prince"], ["Honduras", "America/Tegucigalpa"], ["Jamaica", "America/Jamaica"], ["Mexico", "America/Mexico_City"], ["Nicaragua", "America/Managua"], ["Panama", "America/Panama"], ["Saint Kitts and Nevis", "America/St_Kitts"], ["Saint Lucia", "America/St_Lucia"], ["Saint Vincent and the Grenadines", "America/St_Vincent"], ["Trinidad and Tobago", "America/Port_of_Spain"], ["United States", "America/New_York"], ["Argentina", "America/Argentina/Buenos_Aires"], ["Bolivia", "America/La_Paz"], ["Brazil", "America/Sao_Paulo"], ["Chile", "America/Santiago"], ["Colombia", "America/Bogota"], ["Ecuador", "America/Guayaquil"], ["Guyana", "America/Guyana"], ["Paraguay", "America/Asuncion"], ["Peru", "America/Lima"], ["Suriname", "America/Paramaribo"], ["Uruguay", "America/Montevideo"], ["Venezuela", "America/Caracas"], ["Afghanistan", "Asia/Kabul"], ["Armenia", "Asia/Yerevan"], ["Azerbaijan", "Asia/Baku"], ["Bahrain", "Asia/Bahrain"], ["Bangladesh", "Asia/Dhaka"], ["Bhutan", "Asia/Thimphu"], ["Brunei", "Asia/Brunei"], ["Cambodia", "Asia/Phnom_Penh"], ["China", "Asia/Shanghai"], ["Cyprus", "Asia/Nicosia"], ["Georgia", "Asia/Tbilisi"], ["India", "Asia/Kolkata"], ["Indonesia", "Asia/Jakarta"], ["Iran", "Asia/Tehran"], ["Iraq", "Asia/Baghdad"], ["Israel", "Asia/Jerusalem"], ["Japan", "Asia/Tokyo"], ["Jordan", "Asia/Amman"], ["Kazakhstan", "Asia/Almaty"], ["Kuwait", "Asia/Kuwait"], ["Kyrgyzstan", "Asia/Bishkek"], ["Laos", "Asia/Vientiane"], ["Lebanon", "Asia/Beirut"], ["Malaysia", "Asia/Kuala_Lumpur"], ["Maldives", "Indian/Maldives"], ["Mongolia", "Asia/Ulaanbaatar"], ["Myanmar", "Asia/Yangon"], ["Nepal", "Asia/Kathmandu"], ["North Korea", "Asia/Pyongyang"], ["Oman", "Asia/Muscat"], ["Pakistan", "Asia/Karachi"], ["Philippines", "Asia/Manila"], ["Qatar", "Asia/Qatar"], ["Saudi Arabia", "Asia/Riyadh"], ["Singapore", "Asia/Singapore"], ["South Korea", "Asia/Seoul"], ["Sri Lanka", "Asia/Colombo"], ["Syria", "Asia/Damascus"], ["Tajikistan", "Asia/Dushanbe"], ["Thailand", "Asia/Bangkok"], ["Timor-Leste", "Asia/Dili"], ["Turkey", "Europe/Istanbul"], ["Turkmenistan", "Asia/Ashgabat"], ["United Arab Emirates", "Asia/Dubai"], ["Uzbekistan", "Asia/Tashkent"], ["Vietnam", "Asia/Ho_Chi_Minh"], ["Yemen", "Asia/Aden"], ["Palestine", "Asia/Gaza"], ["Albania", "Europe/Tirane"], ["Andorra", "Europe/Andorra"], ["Austria", "Europe/Vienna"], ["Belarus", "Europe/Minsk"], ["Belgium", "Europe/Brussels"], ["Bosnia and Herzegovina", "Europe/Sarajevo"], ["Bulgaria", "Europe/Sofia"], ["Croatia", "Europe/Zagreb"], ["Czech Republic", "Europe/Prague"], ["Denmark", "Europe/Copenhagen"], ["Estonia", "Europe/Tallinn"], ["Finland", "Europe/Helsinki"], ["France", "Europe/Paris"], ["Germany", "Europe/Berlin"], ["Greece", "Europe/Athens"], ["Hungary", "Europe/Budapest"], ["Iceland", "Atlantic/Reykjavik"], ["Ireland", "Europe/Dublin"], ["Italy", "Europe/Rome"], ["Latvia", "Europe/Riga"], ["Liechtenstein", "Europe/Vaduz"], ["Lithuania", "Europe/Vilnius"], ["Luxembourg", "Europe/Luxembourg"], ["Malta", "Europe/Malta"], ["Moldova", "Europe/Chisinau"], ["Monaco", "Europe/Monaco"], ["Montenegro", "Europe/Podgorica"], ["Netherlands", "Europe/Amsterdam"], ["North Macedonia", "Europe/Skopje"], ["Norway", "Europe/Oslo"], ["Poland", "Europe/Warsaw"], ["Portugal", "Europe/Lisbon"], ["Romania", "Europe/Bucharest"], ["Russia", "Europe/Moscow"], ["San Marino", "Europe/San_Marino"], ["Serbia", "Europe/Belgrade"], ["Slovakia", "Europe/Bratislava"], ["Slovenia", "Europe/Ljubljana"], ["Spain", "Europe/Madrid"], ["Sweden", "Europe/Stockholm"], ["Switzerland", "Europe/Zurich"], ["Ukraine", "Europe/Kyiv"], ["United Kingdom", "Europe/London"], ["Vatican City", "Europe/Vatican"], ["Australia", "Australia/Sydney"], ["Fiji", "Pacific/Fiji"], ["Kiribati", "Pacific/Tarawa"], ["Marshall Islands", "Pacific/Majuro"], ["Micronesia", "Pacific/Chuuk"], ["Nauru", "Pacific/Nauru"], ["New Zealand", "Pacific/Auckland"], ["Palau", "Pacific/Palau"], ["Papua New Guinea", "Pacific/Port_Moresby"], ["Samoa", "Pacific/Apia"], ["Solomon Islands", "Pacific/Guadalcanal"], ["Tonga", "Pacific/Tongatapu"], ["Tuvalu", "Pacific/Funafuti"], ["Vanuatu", "Pacific/Efate"]];
-
-    var listEl = document.getElementById('wc-list');
-    var rows = [];
-
-    function build() {
-      var frag = document.createDocumentFragment();
-      for (var i = 0; i < COUNTRIES.length; i++) {
-        var name = COUNTRIES[i][0];
-        var tz = COUNTRIES[i][1];
-
-        var entry = document.createElement('span');
-        entry.className = 'wc-entry';
-
-        var nameEl = document.createTextNode(name + ' ');
-        var timeEl = document.createElement('span');
-        timeEl.className = 'wc-time';
-        timeEl.textContent = '--:--:--';
-
-        entry.appendChild(nameEl);
-        entry.appendChild(timeEl);
-        frag.appendChild(entry);
-
-        if (i < COUNTRIES.length - 1) {
-          var sep = document.createElement('span');
-          sep.className = 'wc-sep';
-          sep.textContent = ' \u{1F533} ';
-          frag.appendChild(sep);
-        }
-
-        var formatter;
-        try {
-          formatter = new Intl.DateTimeFormat('en-GB', {
-            timeZone: tz,
-            hour12: false,
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-          });
-        } catch (e) {
-          formatter = null;
-        }
-
-        rows.push({ el: timeEl, formatter: formatter });
-      }
-      listEl.appendChild(frag);
-    }
-
-    function tick() {
-      var now = new Date();
-      for (var i = 0; i < rows.length; i++) {
-        var r = rows[i];
-        if (r.formatter) {
-          r.el.textContent = r.formatter.format(now);
-        }
-      }
-    }
-
-    build();
-    tick();
-    setInterval(tick, 1000);
+    var COUNTRIES = [["Algeria","Africa/Algiers"],["Angola","Africa/Luanda"],["Benin","Africa/Porto-Novo"],["Botswana","Africa/Gaborone"],["Burkina Faso","Africa/Ouagadougou"],["Burundi","Africa/Bujumbura"],["Cabo Verde","Atlantic/Cape_Verde"],["Cameroon","Africa/Douala"],["Central African Republic","Africa/Bangui"],["Chad","Africa/Ndjamena"],["Comoros","Indian/Comoro"],["Congo-Brazzaville","Africa/Brazzaville"],["Congo-Kinshasa","Africa/Kinshasa"],["Cote d'Ivoire","Africa/Abidjan"],["Djibouti","Africa/Djibouti"],["Egypt","Africa/Cairo"],["Equatorial Guinea","Africa/Malabo"],["Eritrea","Africa/Asmara"],["Eswatini","Africa/Mbabane"],["Ethiopia","Africa/Addis_Ababa"],["Gabon","Africa/Libreville"],["Gambia","Africa/Banjul"],["Ghana","Africa/Accra"],["Guinea","Africa/Conakry"],["Guinea-Bissau","Africa/Bissau"],["Kenya","Africa/Nairobi"],["Lesotho","Africa/Maseru"],["Liberia","Africa/Monrovia"],["Libya","Africa/Tripoli"],["Madagascar","Indian/Antananarivo"],["Malawi","Africa/Blantyre"],["Mali","Africa/Bamako"],["Mauritania","Africa/Nouakchott"],["Mauritius","Indian/Mauritius"],["Morocco","Africa/Casablanca"],["Mozambique","Africa/Maputo"],["Namibia","Africa/Windhoek"],["Niger","Africa/Niamey"],["Nigeria","Africa/Lagos"],["Rwanda","Africa/Kigali"],["Sao Tome and Principe","Africa/Sao_Tome"],["Senegal","Africa/Dakar"],["Seychelles","Indian/Mahe"],["Sierra Leone","Africa/Freetown"],["Somalia","Africa/Mogadishu"],["South Africa","Africa/Johannesburg"],["South Sudan","Africa/Juba"],["Sudan","Africa/Khartoum"],["Tanzania","Africa/Dar_es_Salaam"],["Togo","Africa/Lome"],["Tunisia","Africa/Tunis"],["Uganda","Africa/Kampala"],["Zambia","Africa/Lusaka"],["Zimbabwe","Africa/Harare"],["Antigua and Barbuda","America/Antigua"],["Bahamas","America/Nassau"],["Barbados","America/Barbados"],["Belize","America/Belize"],["Canada","America/Toronto"],["Costa Rica","America/Costa_Rica"],["Cuba","America/Havana"],["Dominica","America/Dominica"],["Dominican Republic","America/Santo_Domingo"],["El Salvador","America/El_Salvador"],["Grenada","America/Grenada"],["Guatemala","America/Guatemala"],["Haiti","America/Port-au-Prince"],["Honduras","America/Tegucigalpa"],["Jamaica","America/Jamaica"],["Mexico","America/Mexico_City"],["Nicaragua","America/Managua"],["Panama","America/Panama"],["Saint Kitts and Nevis","America/St_Kitts"],["Saint Lucia","America/St_Lucia"],["Saint Vincent and the Grenadines","America/St_Vincent"],["Trinidad and Tobago","America/Port_of_Spain"],["United States","America/New_York"],["Argentina","America/Argentina/Buenos_Aires"],["Bolivia","America/La_Paz"],["Brazil","America/Sao_Paulo"],["Chile","America/Santiago"],["Colombia","America/Bogota"],["Ecuador","America/Guayaquil"],["Guyana","America/Guyana"],["Paraguay","America/Asuncion"],["Peru","America/Lima"],["Suriname","America/Paramaribo"],["Uruguay","America/Montevideo"],["Venezuela","America/Caracas"],["Afghanistan","Asia/Kabul"],["Armenia","Asia/Yerevan"],["Azerbaijan","Asia/Baku"],["Bahrain","Asia/Bahrain"],["Bangladesh","Asia/Dhaka"],["Bhutan","Asia/Thimphu"],["Brunei","Asia/Brunei"],["Cambodia","Asia/Phnom_Penh"],["China","Asia/Shanghai"],["Cyprus","Asia/Nicosia"],["Georgia","Asia/Tbilisi"],["India","Asia/Kolkata"],["Indonesia","Asia/Jakarta"],["Iran","Asia/Tehran"],["Iraq","Asia/Baghdad"],["Israel","Asia/Jerusalem"],["Japan","Asia/Tokyo"],["Jordan","Asia/Amman"],["Kazakhstan","Asia/Almaty"],["Kuwait","Asia/Kuwait"],["Kyrgyzstan","Asia/Bishkek"],["Laos","Asia/Vientiane"],["Lebanon","Asia/Beirut"],["Malaysia","Asia/Kuala_Lumpur"],["Maldives","Indian/Maldives"],["Mongolia","Asia/Ulaanbaatar"],["Myanmar","Asia/Yangon"],["Nepal","Asia/Kathmandu"],["North Korea","Asia/Pyongyang"],["Oman","Asia/Muscat"],["Pakistan","Asia/Karachi"],["Philippines","Asia/Manila"],["Qatar","Asia/Qatar"],["Saudi Arabia","Asia/Riyadh"],["Singapore","Asia/Singapore"],["South Korea","Asia/Seoul"],["Sri Lanka","Asia/Colombo"],["Syria","Asia/Damascus"],["Tajikistan","Asia/Dushanbe"],["Thailand","Asia/Bangkok"],["Timor-Leste","Asia/Dili"],["Turkey","Europe/Istanbul"],["Turkmenistan","Asia/Ashgabat"],["United Arab Emirates","Asia/Dubai"],["Uzbekistan","Asia/Tashkent"],["Vietnam","Asia/Ho_Chi_Minh"],["Yemen","Asia/Aden"],["Palestine","Asia/Gaza"],["Albania","Europe/Tirane"],["Andorra","Europe/Andorra"],["Austria","Europe/Vienna"],["Belarus","Europe/Minsk"],["Belgium","Europe/Brussels"],["Bosnia and Herzegovina","Europe/Sarajevo"],["Bulgaria","Europe/Sofia"],["Croatia","Europe/Zagreb"],["Czech Republic","Europe/Prague"],["Denmark","Europe/Copenhagen"],["Estonia","Europe/Tallinn"],["Finland","Europe/Helsinki"],["France","Europe/Paris"],["Germany","Europe/Berlin"],["Greece","Europe/Athens"],["Hungary","Europe/Budapest"],["Iceland","Atlantic/Reykjavik"],["Ireland","Europe/Dublin"],["Italy","Europe/Rome"],["Latvia","Europe/Riga"],["Liechtenstein","Europe/Vaduz"],["Lithuania","Europe/Vilnius"],["Luxembourg","Europe/Luxembourg"],["Malta","Europe/Malta"],["Moldova","Europe/Chisinau"],["Monaco","Europe/Monaco"],["Montenegro","Europe/Podgorica"],["Netherlands","Europe/Amsterdam"],["North Macedonia","Europe/Skopje"],["Norway","Europe/Oslo"],["Poland","Europe/Warsaw"],["Portugal","Europe/Lisbon"],["Romania","Europe/Bucharest"],["Russia","Europe/Moscow"],["San Marino","Europe/San_Marino"],["Serbia","Europe/Belgrade"],["Slovakia","Europe/Bratislava"],["Slovenia","Europe/Ljubljana"],["Spain","Europe/Madrid"],["Sweden","Europe/Stockholm"],["Switzerland","Europe/Zurich"],["Ukraine","Europe/Kyiv"],["United Kingdom","Europe/London"],["Vatican City","Europe/Vatican"],["Australia","Australia/Sydney"],["Fiji","Pacific/Fiji"],["Kiribati","Pacific/Tarawa"],["Marshall Islands","Pacific/Majuro"],["Micronesia","Pacific/Chuuk"],["Nauru","Pacific/Nauru"],["New Zealand","Pacific/Auckland"],["Palau","Pacific/Palau"],["Papua New Guinea","Pacific/Port_Moresby"],["Samoa","Pacific/Apia"],["Solomon Islands","Pacific/Guadalcanal"],["Tonga","Pacific/Tongatapu"],["Tuvalu","Pacific/Funafuti"],["Vanuatu","Pacific/Efate"]];
+    var listEl=document.getElementById('wc-list'); var rows=[];
+    function build(){var frag=document.createDocumentFragment();for(var i=0;i<COUNTRIES.length;i++){var name=COUNTRIES[i][0],tz=COUNTRIES[i][1],entry=document.createElement('span');entry.className='wc-entry';var nameEl=document.createTextNode(name+' '),timeEl=document.createElement('span');timeEl.className='wc-time';timeEl.textContent='--:--:--';entry.appendChild(nameEl);entry.appendChild(timeEl);frag.appendChild(entry);if(i<COUNTRIES.length-1){var sep=document.createElement('span');sep.className='wc-sep';sep.textContent=' \u{1F533} ';frag.appendChild(sep);}var formatter;try{formatter=new Intl.DateTimeFormat('en-GB',{timeZone:tz,hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit'});}catch(e){formatter=null;}rows.push({el:timeEl,formatter:formatter});}listEl.appendChild(frag);}
+    function tick(){var now=new Date();for(var i=0;i<rows.length;i++){var r=rows[i];if(r.formatter){r.el.textContent=r.formatter.format(now);}}}
+    build(); tick(); setInterval(tick,1000);
   })();
   </script>
 </div>
 
 <div id="elementary-code-section">
   <style>
-    #elementary-code-section {
-      background: #ffffff;
-      color: #000000;
-      font-family: Arial, Helvetica, sans-serif;
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 32px 16px 64px;
-      line-height: 1.7;
-    }
-    #elementary-code-section h2 {
-      font-size: 1.3em;
-      font-weight: bold;
-      margin: 0 0 16px;
-    }
-    #elementary-code-section p {
-      margin: 0 0 14px;
-      font-size: 0.95em;
-    }
-    #elementary-code-section h3 {
-      font-size: 1em;
-      font-weight: bold;
-      margin: 24px 0 10px;
-    }
-    #elementary-code-section ol {
-      margin: 0 0 14px;
-      padding-left: 22px;
-      font-size: 0.95em;
-    }
-    #elementary-code-section li {
-      margin-bottom: 6px;
-    }
-    #ec-lang-toggle {
-      background: #ffffff;
-      color: #000000;
-      border: 1px solid #000000;
-      font-family: inherit;
-      font-size: 0.85em;
-      padding: 6px 14px;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-    #ec-lang-toggle:hover {
-      background: #000000;
-      color: #ffffff;
-    }
-    #ec-content-ja {
-      display: none;
-    }
+    #elementary-code-section { background:#fff; color:#000; font-family:Arial,Helvetica,sans-serif; max-width:640px; margin:0 auto; padding:32px 16px 64px; line-height:1.7; }
+    #elementary-code-section h2 { font-size:1.3em; font-weight:bold; margin:0 0 16px; }
+    #elementary-code-section p { margin:0 0 14px; font-size:.95em; }
+    #elementary-code-section h3 { font-size:1em; font-weight:bold; margin:24px 0 10px; }
+    #elementary-code-section ol { margin:0 0 14px; padding-left:22px; font-size:.95em; }
+    #elementary-code-section li { margin-bottom:6px; }
+    #ec-lang-toggle { background:#fff; color:#000; border:1px solid #000; font-family:inherit; font-size:.85em; padding:6px 14px; cursor:pointer; margin-bottom:20px; }
+    #ec-lang-toggle:hover { background:#000; color:#fff; }
+    #ec-content-ja { display:none; }
+    #site-nav { border-top:1px solid #ddd; margin-top:32px; padding-top:24px; display:flex; flex-wrap:wrap; gap:10px; }
+    #site-nav a { color:#000; border:1px solid #000; border-radius:999px; padding:8px 12px; text-decoration:none; font-weight:700; font-size:.85em; }
   </style>
-
-  <button id="ec-lang-toggle" type="button" onclick="
-    var en = document.getElementById('ec-content-en');
-    var ja = document.getElementById('ec-content-ja');
-    var btn = document.getElementById('ec-lang-toggle');
-    if (en.style.display === 'none') {
-      en.style.display = '';
-      ja.style.display = 'none';
-      btn.textContent = '日本語';
-    } else {
-      en.style.display = 'none';
-      ja.style.display = '';
-      btn.textContent = 'English';
-    }
-  ">日本語</button>
-
+  <button id="ec-lang-toggle" type="button" onclick="var en=document.getElementById('ec-content-en');var ja=document.getElementById('ec-content-ja');var btn=document.getElementById('ec-lang-toggle');if(en.style.display==='none'){en.style.display='';ja.style.display='none';btn.textContent='日本語';}else{en.style.display='none';ja.style.display='';btn.textContent='English';}">日本語</button>
   <div id="ec-content-en">
     <h2>Elementary Code</h2>
     <p>Elementary Code is a new authentication code generated within the dedicated application.</p>
     <p>The code is embedded in a transmission icon. By checking the icon with a compatible application and device, the connection with the other party can be authenticated.</p>
     <p>One of its key features is that communication can be initiated through a dedicated transmission icon without directly sharing a conventional telephone number.</p>
-
     <h3>How it works</h3>
-    <ol>
-      <li>Generate a transmission icon within the dedicated application.</li>
-      <li>The Elementary Code is embedded in the icon.</li>
-      <li>The recipient checks and authenticates the code using the compatible application.</li>
-      <li>Once authentication is completed, communication can begin.</li>
-    </ol>
-
+    <ol><li>Generate a transmission icon within the dedicated application.</li><li>The Elementary Code is embedded in the icon.</li><li>The recipient checks and authenticates the code using the compatible application.</li><li>Once authentication is completed, communication can begin.</li></ol>
     <p>Elementary Code is not simply a displayed number or character string. It is designed to authenticate the relationship between the transmission icon and the other party by combining the dedicated application with a compatible device.</p>
     <p>Authentication is designed to be completed in a short period of time.</p>
     <p>For security and technical reasons, the specific generation, verification algorithms, and internal technical specifications are not publicly disclosed.</p>
   </div>
-
   <div id="ec-content-ja">
     <h2>エレメンタリーコード</h2>
     <p>エレメンタリーコードは、専用アプリの中で生成される、新しい認証コードです。</p>
     <p>発信アイコンに組み込まれたエレメンタリーコードを、対応するアプリと端末で確認することで、相手とのつながりを認証します。</p>
     <p>通常の電話番号を直接伝えることなく、専用の発信アイコンを通してコミュニケーションを始められることが大きな特徴です。</p>
-
     <h3>かんたんな仕組み</h3>
-    <ol>
-      <li>専用アプリで発信アイコンを生成します。</li>
-      <li>アイコンにエレメンタリーコードが組み込まれます。</li>
-      <li>相手側の対応アプリでコードを確認・認証します。</li>
-      <li>認証が完了すると、コミュニケーションを開始できます。</li>
-    </ol>
-
+    <ol><li>専用アプリで発信アイコンを生成します。</li><li>アイコンにエレメンタリーコードが組み込まれます。</li><li>相手側の対応アプリでコードを確認・認証します。</li><li>認証が完了すると、コミュニケーションを開始できます。</li></ol>
     <p>エレメンタリーコードは、単なる数字や文字列を表示するためのものではありません。専用アプリと対応する端末を組み合わせて確認することで、発信アイコンと相手との関係を認証するための仕組みです。</p>
     <p>認証は短時間で行える設計になっています。</p>
     <p>安全性と技術上の理由から、エレメンタリーコードを生成・検証する具体的なアルゴリズムや内部仕様の詳細は公開していません。</p>
   </div>
+  <nav id="site-nav" aria-label="Related sites">
+    <a href="https://elementarycode.tokyo/">ELEMENTARY CODE</a>
+    <a href="https://tandemair.jp/">AIRロビンソン</a>
+    <a href="https://waseda-inspection.com/">早稲田インスペクション</a>
+  </nav>
 </div>
-
 </body>
 </html>
