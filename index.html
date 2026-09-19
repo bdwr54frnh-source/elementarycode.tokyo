@@ -12,14 +12,14 @@
 #shutter-top{top:0}#shutter-bottom{bottom:0}#hero-intro.opening #shutter-top{transform:translateY(-100%)}#hero-intro.opening #shutter-bottom{transform:translateY(100%)}#hero-intro.closing #shutter-top,#hero-intro.closing #shutter-bottom{transform:translateY(0)}#hero-intro.done{display:none}
 #clock-wrap{padding:34px 36px 42px;background:#fff}
 #clock-title{text-align:center;font-size:52px;font-weight:800;margin:0 0 26px}
-#clock-list{font-size:80px;line-height:1.5;font-weight:700;letter-spacing:.01em}
+#clock-list{font-size:clamp(24px,2.4vw,38px)!important;line-height:1.55!important;font-weight:800!important;letter-spacing:.01em!important;color:#000!important}
 .clock-entry,.clock-time{white-space:nowrap}.clock-sep{padding:0 .3em;font-weight:900}
-#basic{padding:70px 28px 90px;text-align:center;background:#fff;border-top:18px solid #121824}
+#robinson{padding:34px 22px;text-align:center;background:#05070b;color:#fff;border-top:10px solid #111}#robinson h2{font-size:clamp(30px,5vw,56px);margin:0 0 8px}#robinson p{font-size:clamp(18px,2.2vw,28px);margin:0 0 20px;font-weight:700}#robinson a{display:inline-block;background:#fff;color:#05070b;text-decoration:none;font-size:clamp(18px,2vw,24px);font-weight:900;padding:15px 24px;border-radius:8px}#basic{padding:70px 28px 90px;text-align:center;background:#fff;border-top:18px solid #121824}
 #basic h2{font-size:44px;margin:0 0 12px}#basic p{font-size:26px;margin:0 0 30px}
 #basic a{display:inline-block;background:#111;color:#fff;text-decoration:none;font-size:24px;font-weight:800;padding:18px 28px;border-radius:8px;margin:8px}
 #site-nav{margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}#site-nav a{background:#fff;color:#000;border:2px solid #000}
-@media(max-width:900px){#clock-title{font-size:42px}#clock-list{font-size:72px}#basic h2{font-size:36px}#basic p{font-size:22px}#basic a{font-size:20px}}
-@media(max-width:600px){#clock-wrap{padding:24px 18px 30px}#clock-title{font-size:36px}#clock-list{font-size:60px;line-height:1.55}#basic{padding:48px 18px 64px}#basic h2{font-size:32px}#basic p{font-size:20px}#basic a{font-size:18px;padding:15px 20px}}
+@media(max-width:900px){#clock-title{font-size:42px}#clock-list{font-size:clamp(22px,4vw,32px)!important#basic h2{font-size:36px}#basic p{font-size:22px}#basic a{font-size:20px}}
+@media(max-width:600px){#clock-wrap{padding:24px 18px 30px}#clock-title{font-size:36px}#clock-list{font-size:22px!important;line-height:1.6!important}#basic{padding:48px 18px 64px}#basic h2{font-size:32px}#basic p{font-size:20px}#basic a{font-size:18px;padding:15px 20px}}
 </style>
 </head>
 <body>
@@ -32,5 +32,5 @@ var C=[["Algeria","Africa/Algiers"],["Angola","Africa/Luanda"],["Benin","Africa/
 var root=document.getElementById('clock-list'),rows=[];C.forEach(function(x,i){var e=document.createElement('span');e.className='clock-entry';var t=document.createElement('span');t.className='clock-time';e.appendChild(document.createTextNode(x[0]+' '));e.appendChild(t);root.appendChild(e);if(i<C.length-1){var s=document.createElement('span');s.className='clock-sep';s.textContent='■';root.appendChild(s)}var f;try{f=new Intl.DateTimeFormat('en-GB',{timeZone:x[1],hour12:false,hour:'2-digit',minute:'2-digit'})}catch(err){f=null}rows.push([t,f])});function tick(){var n=new Date();rows.forEach(function(r){if(r[1])r[0].textContent=r[1].format(n)})}tick();setInterval(tick,30000)
 })();
 </script>
-<section id="basic"><h2>基本コード</h2><p>新しいつながり方</p><a href="elementary-code.html">初級コードについて / Elementary Code</a><nav id="site-nav"><a href="https://tandemair.jp/">AIRロビンソン</a><a href="https://waseda-inspection.com/">早稲田インスペクション</a></nav></section>
+<section id="robinson"><h2>AIRロビンソン</h2><p>SPECTACLE ADVENTURE — MUSIC × WORLD × CHAT</p><a href="https://tandemair.jp/">AIRロビンソンへ</a></section><section id="basic"><h2>基本コード</h2><p>新しいつながり方</p><a href="elementary-code.html">初級コードについて / Elementary Code</a><nav id="site-nav"><a href="https://tandemair.jp/">AIRロビンソン</a><a href="https://waseda-inspection.com/">早稲田インスペクション</a></nav></section>
 </body></html>
