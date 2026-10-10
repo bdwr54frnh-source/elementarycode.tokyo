@@ -160,6 +160,10 @@ C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo'
 <div style="max-width:940px;margin:auto">
 <h2 style="font-size:clamp(27px,4vw,40px);margin:0 0 18px">エレメンタリーコード｜次世代の認証を目指して</h2>
 <p style="font-size:clamp(18px,2.2vw,23px);line-height:1.85">Elementary Code（エレメンタリーコード）は、電話番号やパスワードの入力に頼らず、対応するアプリと端末で接続直前にコードを確認する認証の仕組みとして開発を進めています。目指すのは、利用者の手間を減らし、相手との接続を素早く確認できる技術です。</p>
+<h3 style="font-size:clamp(22px,3vw,28px);margin:26px 0 10px">サッカー選手の写真と、本物の相手を確認する方法</h3>
+<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">たとえば有名なサッカー選手の顔写真が付いたアイコンを受け取ったとしても、写真だけでは、その選手本人から届いたものかどうかは分かりません。写真が本物であることと、送信者が本人であることは別の問題です。</p>
+<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">エレメンタリーコードが目指すのは、写真の見た目を鑑定することではありません。受け取ったアイコンに紐付く正規の接続先を、対応アプリによる呼び出しと接続前のコード照合で確認できる仕組みです。本人確認済みのアカウントと紐付いている場合に限り、その接続結果を本人確認の手掛かりにできます。</p>
+<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.8">※単につながるだけではサッカー選手本人だと証明できません。最初の登録時に本人確認が行われ、アイコンと本人の接続先が正しく紐付いていることが前提です。これは開発中の仕組みの説明であり、現在提供中の機能を示すものではありません。</p>
 <h3 style="font-size:clamp(22px,3vw,28px);margin:26px 0 10px">高速転送・一致照合の参考測定</h3>
 <p style="font-size:clamp(18px,2vw,21px);line-height:1.85">2026年10月10日、25桁と30桁の数字列をそれぞれ10万件、Linux・Pythonの単一プロセス内で代入・一致照合しました。25桁は平均<strong>0.14302マイクロ秒</strong>、30桁は平均<strong>0.14567マイクロ秒</strong>。どちらも10万件すべて一致し、生成した入力の重複は観測されませんでした。</p>
 <p style="font-size:clamp(18px,2vw,21px);line-height:1.85">30桁の平均値を単純換算すると、1秒当たり約686万件のメモリ内代入・比較に相当します。基礎処理として高速ですが、実際の通信認証全体の処理速度を示すものではありません。</p>
