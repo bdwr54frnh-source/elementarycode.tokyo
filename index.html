@@ -25,6 +25,111 @@
 </style>
 </head>
 <body>
+<div id="elementary-code-section">
+  <style>
+    #elementary-code-section {
+      background: #ffffff;
+      color: #000000;
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+      line-height: 1.7;
+    }
+    #elementary-code-section h2 {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin: 0 0 16px;
+    }
+    #elementary-code-section p {
+      margin: 0 0 14px;
+      font-size: 0.95em;
+    }
+    #elementary-code-section h3 {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 24px 0 10px;
+    }
+    #elementary-code-section ol {
+      margin: 0 0 14px;
+      padding-left: 22px;
+      font-size: 0.95em;
+    }
+    #elementary-code-section li {
+      margin-bottom: 6px;
+    }
+    #ec-lang-toggle {
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #000000;
+      font-family: inherit;
+      font-size: 0.85em;
+      padding: 6px 14px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #ec-lang-toggle:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+    #ec-content-ja {
+      display: none;
+    }
+  </style>
+
+  <button id="ec-lang-toggle" type="button" onclick="
+    var en = document.getElementById('ec-content-en');
+    var ja = document.getElementById('ec-content-ja');
+    var btn = document.getElementById('ec-lang-toggle');
+    if (en.style.display === 'none') {
+      en.style.display = '';
+      ja.style.display = 'none';
+      btn.textContent = '日本語';
+    } else {
+      en.style.display = 'none';
+      ja.style.display = '';
+      btn.textContent = 'English';
+    }
+  ">日本語</button>
+
+  <div id="ec-content-en">
+    <h2>Elementary Code</h2>
+    <p>Elementary Code is a new authentication code generated within the dedicated application.</p>
+    <p>The code is embedded in a transmission icon. By checking the icon with a compatible application and device, the connection with the other party can be authenticated.</p>
+    <p>One of its key features is that communication can be initiated through a dedicated transmission icon without directly sharing a conventional telephone number.</p>
+
+    <h3>How it works</h3>
+    <ol>
+      <li>Generate a transmission icon within the dedicated application.</li>
+      <li>The Elementary Code is embedded in the icon.</li>
+      <li>The recipient checks and authenticates the code using the compatible application.</li>
+      <li>Once authentication is completed, communication can begin.</li>
+    </ol>
+
+    <p>Elementary Code is not simply a displayed number or character string. It is designed to authenticate the relationship between the transmission icon and the other party by combining the dedicated application with a compatible device.</p>
+    <p>Authentication is designed to be completed in a short period of time.</p>
+    <p>For security and technical reasons, the specific generation, verification algorithms, and internal technical specifications are not publicly disclosed.</p>
+  </div>
+
+  <div id="ec-content-ja">
+    <h2>エレメンタリーコード</h2>
+    <p>エレメンタリーコードは、専用アプリの中で生成される、新しい認証コードです。</p>
+    <p>発信アイコンに組み込まれたエレメンタリーコードを、対応するアプリと端末で確認することで、相手とのつながりを認証します。</p>
+    <p>通常の電話番号を直接伝えることなく、専用の発信アイコンを通してコミュニケーションを始められることが大きな特徴です。</p>
+
+    <h3>かんたんな仕組み</h3>
+    <ol>
+      <li>専用アプリで発信アイコンを生成します。</li>
+      <li>アイコンにエレメンタリーコードが組み込まれます。</li>
+      <li>相手側の対応アプリでコードを確認・認証します。</li>
+      <li>認証が完了すると、コミュニケーションを開始できます。</li>
+    </ol>
+
+    <p>エレメンタリーコードは、単なる数字や文字列を表示するためのものではありません。専用アプリと対応する端末を組み合わせて確認することで、発信アイコンと相手との関係を認証するための仕組みです。</p>
+    <p>認証は短時間で行える設計になっています。</p>
+    <p>安全性と技術上の理由から、エレメンタリーコードを生成・検証する具体的なアルゴリズムや内部仕様の詳細は公開していません。</p>
+  </div>
+</div>
 <section id="clock-wrap"><h1 id="clock-title">WORLD TIME</h1><div id="clock-list"></div></section>
 <script>
 (function(){
