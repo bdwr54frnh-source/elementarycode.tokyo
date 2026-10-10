@@ -156,6 +156,17 @@ C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo'
     <p class="news-note">※本内容は現在提供中の機能を示すものではなく、今後のアプリ開発に向けた計画・構想です。</p>
   </div>
 </section>
-<section id="participation"><h2>Elementary Code アプリ参加者募集</h2><p>Elementary Code を使うアプリのテスト参加を希望される方は、メールでご連絡ください。参加方法と案内は準備が整い次第お送りします。</p><a href="mailto:info@tandemair.jp?subject=Elementary%20Code%20%E3%83%86%E3%82%B9%E3%83%88%E5%8F%82%E5%8A%A0%E5%B8%8C%E6%9C%9B">テスト参加を希望する</a></section>
+<section id="ec-explanation" style="padding:38px 20px 54px;background:#fff;color:#111">
+<div style="max-width:940px;margin:auto">
+<h2 style="font-size:clamp(27px,4vw,40px);margin:0 0 18px">エレメンタリーコード｜次世代の認証を目指して</h2>
+<p style="font-size:clamp(18px,2.2vw,23px);line-height:1.85">Elementary Code（エレメンタリーコード）は、電話番号やパスワードの入力に頼らず、対応するアプリと端末で接続直前にコードを確認する認証の仕組みとして開発を進めています。目指すのは、利用者の手間を減らし、相手との接続を素早く確認できる技術です。</p>
+<h3 style="font-size:clamp(22px,3vw,28px);margin:26px 0 10px">高速転送・一致照合の参考測定</h3>
+<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">2026年10月10日、25桁と30桁の数字列をそれぞれ10万件、Linux・Pythonの単一プロセス内で代入・一致照合しました。25桁は平均<strong>0.14302マイクロ秒</strong>、30桁は平均<strong>0.14567マイクロ秒</strong>。どちらも10万件すべて一致し、生成した入力の重複は観測されませんでした。</p>
+<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">30桁の平均値を単純換算すると、1秒当たり約686万件のメモリ内代入・比較に相当します。基礎処理として高速ですが、実際の通信認証全体の処理速度を示すものではありません。</p>
+<h3 style="font-size:clamp(22px,3vw,28px);margin:26px 0 10px">一意性と安全性への取り組み</h3>
+<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">同じコードが重複せず、適切な相手と接続できることを目標としています。今回の入力重複0件は試験したサンプル内での結果であり、数学的な一意性や第三者に対する安全性を証明するものではありません。</p>
+<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.8">※25桁と30桁は試験用の長さであり、製品本体の正式な桁数は未確定です。実際の端末間通信、世界時刻同期、暗号処理を含む認証時間は未測定です。生成方法や検証アルゴリズムなどの非公開技術情報は掲載していません。</p>
+<p><a href="elementary-code.html#speed-test" style="font-size:20px;font-weight:700;color:#111">測定条件と詳しい説明を見る →</a></p>
+</div></section>
 <footer style="padding:24px;text-align:center;background:#fff"><a href="https://waseda-inspection.com/">運営・お問い合わせ：早稲田インスペクション</a></footer>
 </body></html>
