@@ -24,7 +24,7 @@
 <p>見えている数字や文字列だけをコピーしても、コードが存在する場所、対応する端末、認証の関係まで再現できなければ、仕組みそのものを複製したことにはなりません。</p>
 <div class="note"><h3>安全性と技術情報</h3><p>安全性と技術上の理由から、具体的な生成・検証アルゴリズムや内部仕様の詳細は公開していません。</p></div>
 <h2 id="speed-test">25桁・30桁の高速転送・一致照合測定（2026年10月10日）</h2><p>25桁と30桁の数値文字列をそれぞれ10万件用いた基礎試験です。正式なエレメンタリーコードの桁数は未確定です。</p><ul><li>25桁：総時間14.302ミリ秒、平均0.14302マイクロ秒/件</li><li>30桁：総時間14.567ミリ秒、平均0.14567マイクロ秒/件</li><li>どちらも10万件すべて一致、入力重複0件</li></ul><h3>試験の内容と意味</h3><p>Python 3.13.5をLinux上で実行。事前に生成した文字列を単一プロセス内のメモリ配列へ代入し、等値比較しました。入力生成時間は含みません。Pythonの参照代入を測っており、端末間通信や文字列バイト列全体のコピー速度ではありません。</p><p>重複0件は各試験の生成サンプルだけの観測結果です。全コードの数学的一意性、認証の安全性、世界最速の認証時間を証明するものではありません。世界時刻同期、暗号処理、ネットワーク、端末間認証は測定に含まれません。非公開の内部アルゴリズムは掲載しません。</p>
-<h2>将来的な応用構想</h2>
+<p><strong>速度の評価：</strong>今回のメモリ内代入・一致比較は高速です。30桁の平均0.14567マイクロ秒を単純換算すると、1秒当たり約686万件の処理に相当します。これはベンチマーク条件下での計算上の処理件数であり、実際の通信認証を毎秒686万件実行できるという意味ではありません。通信、時刻同期、暗号処理などを含む実際の認証速度や、他方式に対する世界最速の優位性は今後の検証課題です。</p><h2>将来的な応用構想</h2>
 <p>エレメンタリーコードの考え方は通信だけに限定せず、将来的には車両セキュリティなどへの応用も構想しています。現時点では将来構想であり、完成済みの車両防犯製品を示すものではありません。</p>
 </section>
 <section class="lang-en" id="en">
@@ -40,7 +40,7 @@
 <p>Copying only the visible numbers or characters does not reproduce the full system unless the code location, designated device, and authentication relationship are also reproduced.</p>
 <div class="note"><h3>Security and technical details</h3><p>For security and technical reasons, detailed generation and verification algorithms and internal specifications are not publicly disclosed.</p></div>
 <h2 id="speed-test">25- and 30-digit transfer and equality-check benchmark (10 October 2026)</h2><p>We tested 100,000 pre-generated numeric strings of each length. The final production code length has not been confirmed.</p><ul><li>25 digits: 14.302 ms total; 0.14302 microseconds per item</li><li>30 digits: 14.567 ms total; 0.14567 microseconds per item</li><li>Each test: 100,000 successful equality checks and zero duplicate inputs observed</li></ul><h3>Method and limitations</h3><p>Python 3.13.5 on Linux; same-process memory reference assignments and equality checks, excluding input generation. This does not measure inter-device data transmission or copying all string bytes. Zero observed duplicates applies only to the samples. Network transmission, time synchronization, cryptography and full authentication were not measured. No claim of guaranteed uniqueness, proven security or world-fastest authentication can be inferred. Proprietary internal algorithms are not disclosed.</p>
-<h2>Future applications</h2>
+<p><strong>Speed assessment:</strong> The local in-memory reference assignment and equality check were fast. The 30-digit mean of 0.14567 microseconds corresponds arithmetically to approximately 6.86 million operations per second under these benchmark conditions. This is not an end-to-end authentication throughput claim. Communications, time synchronization, cryptography, and comparisons with other authentication systems require separate testing.</p><h2>Future applications</h2>
 <p>The concept is not limited to communication. Future applications such as vehicle security are under consideration. These are development concepts, not claims about a currently completed vehicle-security product.</p>
 </section>
 <nav class="site-nav"><a href="https://elementarycode.tokyo/">ELEMENTARY CODE</a><a href="https://tandemair.jp/">AIRロビンソン</a><a href="https://waseda-inspection.com/">早稲田インスペクション</a></nav>
