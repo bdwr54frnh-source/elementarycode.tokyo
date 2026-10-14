@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ELEMENTARY CODE | 公開表示テスト</title>
+<style>body{font-family:system-ui,sans-serif;background:#fff;color:#111;margin:0;padding:24px}main{max-width:850px;margin:auto}h1{letter-spacing:.08em}button{padding:9px 18px;background:white;border:1px solid black;cursor:pointer}.line{font-size:clamp(16px,3vw,24px);padding:15px 0;border-bottom:1px solid #ddd;font-variant-numeric:tabular-nums}.marker{font-weight:900}small{color:#555}#tokyo{font-size:clamp(22px,4vw,34px)}</style></head><body><main>
+<h1>ELEMENTARY CODE</h1><button id="lang" type="button">English / 日本語</button>
+<p id="notice">公開表示の動作確認版。認証鍵・双子コード・逆計算の秘密情報は生成・公開しません。</p>
+<div id="tokyo" class="line"></div><div id="clocks"></div>
+<small id="shift"></small>
+<script>
+(()=>{'use strict';
+const zones=[['Japan','Asia/Tokyo'],['United States','America/New_York'],['United Kingdom','Europe/London'],['France','Europe/Paris'],['Germany','Europe/Berlin'],['India','Asia/Kolkata'],['China','Asia/Shanghai'],['South Korea','Asia/Seoul'],['Australia','Australia/Sydney'],['Brazil','America/Sao_Paulo']];
+const fmt=new Map(zones.map(([n,z])=>[z,new Intl.DateTimeFormat('en-GB',{timeZone:z,hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'})]));
+let japanese=true;
+const safeTime=(z,d)=>fmt.get(z).format(d);
+const dayKey=d=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(d);
+function update(){const d=new Date(), day=dayKey(d), shift=Math.floor(Date.UTC(...day.split(/\D/).map((x,i)=>i===1?Number(x)-1:Number(x)))/86400000)%10;
+document.getElementById('tokyo').textContent='Tokyo  '+safeTime('Asia/Tokyo',d)+'.'+String(d.getMilliseconds()).padStart(3,'0');
+document.getElementById('clocks').replaceChildren(...zones.map(([name,z],i)=>{const el=document.createElement('div');el.className='line';const parts=[name+'  ',safeTime(z,d),'  ', '▪9'];const shifted=(i+shift)%zones.length;el.textContent=parts.join('');el.dataset.position=String(shifted+1);return el;}));
+document.getElementById('shift').textContent=(japanese?'日本時間の日付: ':'Japan date: ')+day+' / '+(japanese?'日次位置シフト: ':'Daily position shift: ')+shift;
+}
+document.getElementById('lang').addEventListener('click',()=>{japanese=!japanese;document.getElementById('notice').textContent=japanese?'公開表示の動作確認版。認証鍵・双子コード・逆計算の秘密情報は生成・公開しません。':'Public display prototype only. No authentication secrets, twin keys or private reverse calculations are generated or exposed.';update()});
+update();setInterval(update,100);
+})();
+</script></main></body></html>
