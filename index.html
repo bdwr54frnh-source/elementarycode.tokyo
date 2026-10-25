@@ -147,6 +147,7 @@ C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo'
 <section id="elementary-code-introduction" aria-label="Elementary Code introduction">
   <div class="ec-comic-live-wrap">
     <img src="elementary_code_correct_8panel.png" alt="ELEMENTARY CODEってなに？ 8コマ漫画" loading="eager">
+    <img src="elementary_code_correct_8panel.png" alt="ELEMENTARY CODE 8コマ漫画" loading="eager">
     <time id="ec-comic-tokyo-clock" aria-label="東京時刻 LIVE（100分の1秒）">12:34:56.78</time>
   </div>
 </section>
@@ -154,6 +155,9 @@ C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo'
 #elementary-code-introduction .ec-comic-live-wrap{position:relative;width:100%;margin:0;container-type:inline-size}
 #elementary-code-introduction .ec-comic-live-wrap img{display:block;width:100%;max-width:none;height:auto}
 #ec-comic-tokyo-clock{position:absolute;left:39.0%;top:31.3%;width:13.4%;height:2.3%;display:flex;align-items:center;justify-content:center;background:#011b36;color:#f4f6ff;font:700 clamp(5px,1.7cqw,24px)/1 Arial,Helvetica,sans-serif;letter-spacing:-.045em;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;pointer-events:none}
+#elementary-code-introduction .ec-comic-live-wrap{position:relative;width:100%;margin:0}
+#elementary-code-introduction .ec-comic-live-wrap img{display:block;width:100%;height:auto}
+#ec-comic-tokyo-clock{position:absolute;left:39.0%;top:31.3%;width:13.4%;height:2.3%;display:flex;align-items:center;justify-content:center;background:#011b36;color:#f4f6ff;font:700 clamp(5px,1.7vw,24px)/1 Arial,Helvetica,sans-serif;letter-spacing:-.045em;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;pointer-events:none}
 #ec-comic-tokyo-clock::first-letter{color:#fff}
 </style>
 <script>
@@ -161,7 +165,11 @@ C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo'
  const el=document.getElementById('ec-comic-tokyo-clock');
  const fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
  function update(){const now=new Date();el.textContent=fmt.format(now)+'.'+String(Math.floor(now.getMilliseconds()/10)).padStart(2,'0');}
- update();setInterval(update,10);
+ if(!el)return;
+ update();
+ setInterval(update,10);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)update();});
+ window.addEventListener('pageshow',update);
 })();
 </script>
 
