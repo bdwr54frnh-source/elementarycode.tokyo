@@ -1,0 +1,26 @@
+/* ELEMENTARY CODE fixed-layout template — draft, not yet linked to public site. */
+/* Keep all original copy, links, images, and icons unchanged. */
+:root{--ec-text:20px;--ec-title:32px;--ec-subtitle:26px;--ec-line:1.7}
+#elementary-code-section{width:100%;max-width:780px;margin-inline:auto;padding:28px 20px 40px;overflow-wrap:anywhere;line-height:var(--ec-line)}
+#elementary-code-section h2{font-size:var(--ec-title)!important;line-height:1.35!important}
+#elementary-code-section h3{font-size:var(--ec-subtitle)!important;line-height:1.4!important}
+#elementary-code-section p,#elementary-code-section ol,#elementary-code-section li{font-size:var(--ec-text)!important;line-height:var(--ec-line)!important}
+#elementary-code-section button{font-size:18px!important;min-height:44px}
+#elementary-code-section img,#elementary-code-section video{max-width:100%;height:auto;object-fit:contain}
+#ec-benchmark,#ec-explanation{max-width:780px;margin-inline:auto;padding-inline:20px;overflow-wrap:anywhere}
+#ec-benchmark p,#ec-explanation p{font-size:20px!important;line-height:1.7!important}
+#clock-list{font-size:18px!important;overflow-x:auto}
+#clock-title{font-size:32px!important}
+#basic h2{font-size:32px!important}
+#basic p{font-size:20px!important}
+#basic a{font-size:20px!important}
+@media(max-width:600px){
+#elementary-code-section{padding:20px 16px 32px}
+#elementary-code-section h2{font-size:32px!important}
+#elementary-code-section h3{font-size:26px!important}
+#elementary-code-section p,#elementary-code-section ol,#elementary-code-section li{font-size:20px!important}
+#clock-list{font-size:18px!important}
+#clock-title{font-size:32px!important}
+#basic h2{font-size:32px!important}
+#basic p,#basic a{font-size:20px!important}
+}
