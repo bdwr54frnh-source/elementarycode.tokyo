@@ -142,9 +142,11 @@ var C=[["Algeria","Africa/Algiers"],["Angola","Africa/Luanda"],["Benin","Africa/
 C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo']);var root=document.getElementById('clock-list'),rows=[];C.forEach(function(x,i){var e=document.createElement('span');e.className='clock-entry';var t=document.createElement('span');t.className='clock-time';e.appendChild(document.createTextNode(x[0]+' '));e.appendChild(t);root.appendChild(e);if(i<C.length-1){var s=document.createElement('span');s.className='clock-sep';s.textContent='■';root.appendChild(s)}var f;try{f=new Intl.DateTimeFormat('en-GB',{timeZone:x[1],hour12:false,hour:'2-digit',minute:'2-digit'})}catch(err){f=null}var blocks='■■■■■■■■■';rows.push([t,f,blocks])});function tick(){var n=new Date();rows.forEach(function(r){if(r[1])r[0].textContent=r[1].format(n)+r[2]})}tick();setInterval(tick,1000)
 })();
 </script>
+<style>html{scroll-behavior:smooth}#elementary-code-introduction{scroll-margin-top:0}</style>
+<a href="#elementary-code-introduction" style="display:block;text-align:center;padding:14px;font:bold 18px Arial,sans-serif;background:#071b37;color:white">漫画のLIVE時計を見る ↓</a>
 <section id="elementary-code-introduction" aria-label="Elementary Code introduction">
   <div class="ec-comic-live-wrap">
-    <img src="elementary-code-introduction.jpeg" alt="Elementary Codeの紹介">
+    <img src="https://raw.githubusercontent.com/bdwr54frnh-source/elementarycode.tokyo/084e672c70bb82138816d1e2461b23e8e7b3cd29/elementary-code-introduction.jpeg" alt="Elementary Codeの紹介" loading="eager">
     <time id="ec-comic-tokyo-clock" aria-label="東京時刻 LIVE（100分の1秒）">12:34:56.78</time>
   </div>
 </section>
