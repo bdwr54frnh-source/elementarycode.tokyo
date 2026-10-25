@@ -135,6 +135,25 @@
   </div>
 </div>
 <section aria-label="Elementary Code benchmark" style="padding:30px 22px;max-width:1100px;margin:auto;font-family:Arial,sans-serif"><h2 style="font-size:clamp(24px,4vw,36px)">Elementary Code｜高速転送・一致照合試験</h2><p style="font-size:clamp(18px,2.3vw,24px);line-height:1.6">2026年10月10日の参考測定：25桁と30桁をそれぞれ10万件測定。25桁：総時間14.302ミリ秒・平均0.14302マイクロ秒／件。30桁：総時間14.567ミリ秒・平均0.14567マイクロ秒／件。両方とも10万件すべて一致、入力重複0件。製品本体の桁数は未確定で、実際の通信認証時間ではありません。単一プロセスのメモリ内試験であり、実際の通信認証や世界最速を示す数字ではありません。</p><a href="elementary-code.html#speed-test" style="font-size:20px;font-weight:bold;color:#000">測定条件・詳しい説明を見る →</a></section>
+<style>
+/* Fixed-size responsive layout; original words and media retained */
+#elementary-code-section{max-width:780px!important;padding:32px 20px 64px!important}
+#elementary-code-section h2{font-size:32px!important}
+#elementary-code-section h3{font-size:26px!important}
+#elementary-code-section p,#elementary-code-section ol{font-size:20px!important}
+#clock-title{font-size:36px!important}
+#clock-list{font-size:18px!important;overflow-x:auto}
+#basic h2{font-size:36px!important}
+#basic p{font-size:22px!important}
+#basic a{font-size:20px!important}
+#elementary-code-introduction img{max-width:100%;height:auto;object-fit:contain}
+</style>
+<section id="ec-live-display" aria-label="Elementary Code processing rate" style="max-width:780px;margin:24px auto;padding:24px 20px;border:2px solid #aaa;border-radius:12px;background:#080d18;color:white;font-family:Arial,sans-serif;text-align:center">
+<h2 style="font-size:28px;margin:0 0 12px">ELEMENTARY CODE｜LIVE</h2>
+<div id="ec-live-rate" style="font-size:40px;font-weight:800;font-variant-numeric:tabular-nums">計測待機中</div>
+<p style="font-size:18px;line-height:1.5">コード生成速度（件／秒）</p>
+<p style="font-size:16px;line-height:1.5">実測データへの接続後に表示します。目標：毎秒10,000件。未検証の値は表示しません。</p>
+</section>
 <section id="clock-wrap"><h1 id="clock-title">WORLD TIME</h1><div id="clock-list"></div></section>
 <script>
 (function(){
