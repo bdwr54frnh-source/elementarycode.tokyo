@@ -154,6 +154,22 @@
 <p style="font-size:18px;line-height:1.5">コード生成速度（件／秒）</p>
 <p style="font-size:16px;line-height:1.5">実測データへの接続後に表示します。目標：毎秒10,000件。未検証の値は表示しません。</p>
 </section>
+<section id="ec-centisecond-clock" aria-label="東京時刻・100分の1秒" style="max-width:780px;margin:16px auto;padding:20px;text-align:center;border:2px solid #aab5c2;border-radius:12px;background:#fff;color:#111;font-family:Arial,sans-serif">
+<div style="font-size:18px;font-weight:700">東京時刻｜100分の1秒</div>
+<output id="ec-centisecond-value" aria-live="off" style="display:block;margin:12px 0;font-size:clamp(30px,7vw,54px);font-weight:800;font-variant-numeric:tabular-nums">--:--:--.--</output>
+<p style="font-size:18px;line-height:1.7">1秒は100分の1秒が100個集まった時間です。1秒をさらに10,000等分すると、1区間は0.0001秒（100マイクロ秒）になります。これは1秒間に10,000個を割り当てるための時間の細かさを表します。</p>
+<p style="font-size:18px;line-height:1.7">その速さの中で生まれる一つひとつのAI CODEを、世界に一つだけの識別番号として管理することを目指します。同じ時刻に複数の発注があっても、正規サーバーが重複しない連番を発行し、発行記録と照合します。</p>
+<p style="font-size:15px;line-height:1.6">※時刻表示は閲覧端末の時計を東京時間に変換したものです。100分の1秒表示は実際の生成処理や10,000件／秒の達成を証明するものではありません。一意性にはサーバーでの重複防止と認証が必要です。</p>
+</section>
+<script>
+(function(){
+ const node=document.getElementById('ec-centisecond-value');
+ if(!node)return;
+ const fmt=new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+ function tick(){const now=new Date();node.textContent=fmt.format(now)+'.'+String(Math.floor(now.getMilliseconds()/10)).padStart(2,'0');}
+ tick();setInterval(tick,10);
+})();
+</script>
 <section id="clock-wrap"><h1 id="clock-title">WORLD TIME</h1><div id="clock-list"></div></section>
 <script>
 (function(){
