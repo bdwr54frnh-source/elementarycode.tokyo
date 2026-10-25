@@ -161,7 +161,11 @@ C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo'
  const el=document.getElementById('ec-comic-tokyo-clock');
  const fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
  function update(){const now=new Date();el.textContent=fmt.format(now)+'.'+String(Math.floor(now.getMilliseconds()/10)).padStart(2,'0');}
- update();setInterval(update,10);
+ if(!el)return;
+ update();
+ setInterval(update,10);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)update();});
+ window.addEventListener('pageshow',update);
 })();
 </script>
 
