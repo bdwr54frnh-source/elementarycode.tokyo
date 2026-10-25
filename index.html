@@ -96,6 +96,12 @@
     }
   ">日本語</button>
 
+  <section id="ec-speed" aria-label="Elementary Code 実測処理件数" style="margin:0 0 24px;text-align:center">
+    <p style="margin:0 0 6px">ELEMENTARY CODE · 件/秒</p>
+    <output id="ec-speed-value" style="display:block;padding:18px 8px;border:1px solid #aaa;font-family:monospace;font-variant-numeric:tabular-nums;font-size:clamp(36px,9vw,64px);line-height:1.2;overflow-wrap:anywhere">—</output>
+  </section>
+  <script src="ec-speed.js" defer></script>
+
   <div id="ec-content-en">
     <h2>Elementary Code</h2>
     <p>Elementary Code is a new authentication code generated within the dedicated application.</p>
@@ -178,3 +184,4 @@ C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo'
 </div></section>
 <footer style="padding:24px;text-align:center;background:#fff"><a href="https://waseda-inspection.com/">運営・お問い合わせ：早稲田インスペクション</a></footer>
 </body></html>
+
