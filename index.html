@@ -146,14 +146,14 @@ C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo'
 <a href="#elementary-code-introduction" style="display:block;text-align:center;padding:14px;font:bold 18px Arial,sans-serif;background:#071b37;color:white">漫画のLIVE時計を見る ↓</a>
 <section id="elementary-code-introduction" aria-label="Elementary Code introduction">
   <div class="ec-comic-live-wrap">
-    <img src="https://raw.githubusercontent.com/bdwr54frnh-source/elementarycode.tokyo/084e672c70bb82138816d1e2461b23e8e7b3cd29/elementary-code-introduction.jpeg" alt="Elementary Codeの紹介" loading="eager">
+    <img src="elementary_code_correct_8panel.png" alt="ELEMENTARY CODEってなに？ 8コマ漫画" loading="eager">
     <time id="ec-comic-tokyo-clock" aria-label="東京時刻 LIVE（100分の1秒）">12:34:56.78</time>
   </div>
 </section>
 <style>
-#elementary-code-introduction .ec-comic-live-wrap{position:relative;width:100%;margin:0}
-#elementary-code-introduction .ec-comic-live-wrap img{display:block;width:100%;height:auto}
-#ec-comic-tokyo-clock{position:absolute;left:39.0%;top:30.4%;width:13.4%;height:3.5%;display:flex;align-items:center;justify-content:center;background:#071b37;color:#f4f6ff;font:700 clamp(5px,1.7vw,32px)/1 Arial,Helvetica,sans-serif;letter-spacing:-.045em;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;pointer-events:none}
+#elementary-code-introduction .ec-comic-live-wrap{position:relative;width:100%;margin:0;container-type:inline-size}
+#elementary-code-introduction .ec-comic-live-wrap img{display:block;width:100%;max-width:none;height:auto}
+#ec-comic-tokyo-clock{position:absolute;left:39.0%;top:31.3%;width:13.4%;height:2.3%;display:flex;align-items:center;justify-content:center;background:#011b36;color:#f4f6ff;font:700 clamp(5px,1.7cqw,24px)/1 Arial,Helvetica,sans-serif;letter-spacing:-.045em;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;pointer-events:none}
 #ec-comic-tokyo-clock::first-letter{color:#fff}
 </style>
 <script>
