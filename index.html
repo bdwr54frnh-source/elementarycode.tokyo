@@ -1,200 +1,995 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elementary Code</title>
-<!-- refresh 2026-09-22 10:58 JST · fullscreen gear hero removed -->
-<style>
-*{box-sizing:border-box}body{margin:0;background:#fff;color:#000;font-family:"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP","MS PMincho",serif}
-#clock-wrap{width:100%;max-width:none;padding:30px 18px 38px;background:#fff}
-#clock-title{text-align:center;font-size:clamp(42px,3.2vw,58px);font-weight:900;margin:0 0 24px}
-#clock-list{width:100%;max-width:1100px;margin:0 auto;font-size:18px!important;line-height:1.7!important;font-weight:700!important;letter-spacing:.01em!important;color:#000!important}
-.clock-entry{display:block;white-space:nowrap;border-bottom:1px solid #eee;padding:3px 0}.clock-time{white-space:nowrap;display:inline}.clock-sep{display:none}
-#elementary-code-introduction{background:#05070b;padding:0}
-#elementary-code-introduction img{display:block;width:100%;height:auto;margin:0 auto}
-#robinson{padding:34px 22px;text-align:center;background:#05070b;color:#fff;border-top:10px solid #111}#robinson h2{font-size:clamp(30px,5vw,56px);margin:0 0 8px}#robinson p{font-size:clamp(18px,2.2vw,28px);margin:0 0 20px;font-weight:700}#robinson a{display:inline-block;background:#fff;color:#05070b;text-decoration:none;font-size:clamp(18px,2vw,24px);font-weight:900;padding:15px 24px;border-radius:8px}#basic{padding:70px 28px 90px;text-align:center;background:#fff;border-top:18px solid #121824}
-#basic h2{font-size:44px;margin:0 0 12px}#basic p{font-size:26px;margin:0 0 30px}
-#basic a{display:inline-block;background:#111;color:#fff;text-decoration:none;font-size:24px;font-weight:800;padding:18px 28px;border-radius:8px;margin:8px}
-#site-nav{margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}#site-nav a{background:#fff;color:#000;border:2px solid #000}
-@media(max-width:900px){#clock-title{font-size:36px}#clock-list{font-size:17px!important;line-height:1.65!important}#basic h2{font-size:36px}#basic p{font-size:22px}#basic a{font-size:20px}}
-@media(max-width:600px){#clock-wrap{padding:20px 14px 26px}#clock-title{font-size:30px}#clock-list{font-size:15px!important;line-height:1.6!important}#basic{padding:48px 18px 64px}#basic h2{font-size:32px}#basic p{font-size:20px}#basic a{font-size:18px;padding:15px 20px}}
-#participation{padding:34px 20px 46px;background:#fff;color:#000;text-align:center}#participation h2{font-size:clamp(26px,4vw,42px);margin:0 0 12px}#participation p{font-size:clamp(16px,2vw,22px);line-height:1.6;margin:0 auto 18px;max-width:850px}#participation a{display:inline-block;padding:14px 22px;background:#000;color:#fff;font-weight:bold;text-decoration:none;border-radius:6px}
-
-#media-air-news{padding:52px 22px 58px;background:#05070b;color:#fff}#media-air-news .news-inner{max-width:980px;margin:0 auto}#media-air-news h2{font-size:clamp(30px,5vw,52px);margin:0 0 8px}#media-air-news h3{font-size:clamp(20px,3vw,30px);margin:0 0 26px}#media-air-news p{font-size:clamp(16px,2vw,21px);line-height:1.85;margin:0 0 18px}#media-air-news .news-key{font-size:clamp(20px,2.5vw,28px);font-weight:900;margin:30px 0}#media-air-news .news-note{font-size:14px;opacity:.8;margin-top:28px}
-
-/* Formal editorial text uses Japanese Mincho throughout. */
-#elementary-code-section,#ec-benchmark,#ec-explanation,#ec-explanation *,#media-air-news,#media-air-news *{font-family:"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP","MS PMincho",serif!important}
-</style>
-</head>
-<body>
-<nav aria-label="無料の公式アドレス帳" style="padding:20px;text-align:center;border-bottom:1px solid #ddd"><strong>PLUG LOCK WORLD GUIDE｜無料版</strong><br><a href="https://waseda-inspection.com/air-official-directory.html" style="display:inline-block;margin-top:12px;padding:14px 20px;background:#174a38;color:white;border-radius:8px;font-weight:bold;text-decoration:none">公式アドレス帳を開く — LINE・Xなど →</a></nav>
-<div id="elementary-code-section">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELEMENTARY CODE — Digital Authentication System</title>
+  <link rel="stylesheet" href="assets/ec-comic-fullbleed.css?v=p3-overlay-4col-prod1">
+  <script>
+    (function () {
+      var host = location.hostname;
+      if (host === "elementarycode.tokyo" || host === "www.elementarycode.tokyo") {
+        var q = new URLSearchParams(location.search);
+        if (q.get("ecConfirmLive") !== "1") {
+          q.set("ecConfirmLive", "1");
+          location.replace(location.pathname + "?" + q.toString() + location.hash);
+        }
+      }
+    })();
+  </script>
+  <meta name="description" content="Official public page for Elementary Code and Air Icon. Verify only on aicode.tokyo.">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WXF127P26H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WXF127P26H');
+  </script>
   <style>
-    #elementary-code-section {
-      background: #ffffff;
-      color: #000000;
-      font-family: "Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP","MS PMincho",serif;
-      max-width: 640px;
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --ink: #111111;
+      --muted: #555555;
+      --line: #dddddd;
+    }
+    * { box-sizing: border-box; }
+    /* 簡易コピーガード（完全防止ではない）。入力欄は選択可。 */
+    html, body {
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+    input, textarea {
+      -webkit-user-select: text;
+      user-select: text;
+      -webkit-touch-callout: default;
+    }
+    img.protected-asset,
+    .protected-asset img {
+      -webkit-user-drag: none;
+      user-drag: none;
+      pointer-events: none;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .protected-asset {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+    }
+    .protected-asset::after {
+      content: "elementarycode.tokyo";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-18deg);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: rgba(17, 17, 17, 0.28);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      line-height: 1.55;
+      font-size: 15px;
+    }
+    header, main, footer {
+      width: min(720px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 32px 16px 64px;
-      line-height: 1.7;
     }
-    #elementary-code-section h2 {
-      font-size: 1.3em;
-      font-weight: bold;
-      margin: 0 0 16px;
+    header { padding: 28px 0 8px; }
+    main { padding-bottom: 64px; }
+    footer {
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--line);
     }
-    #elementary-code-section p {
-      margin: 0 0 14px;
-      font-size: 0.95em;
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
     }
-    #elementary-code-section h3 {
-      font-size: 1em;
-      font-weight: bold;
-      margin: 24px 0 10px;
+    .sub {
+      margin: 6px 0 0;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
     }
-    #elementary-code-section ol {
-      margin: 0 0 14px;
-      padding-left: 22px;
-      font-size: 0.95em;
+    .banner {
+      margin: 16px 0 0;
+      padding: 10px 12px;
+      border: 1px solid var(--ink);
+      font-size: 12px;
     }
-    #elementary-code-section li {
-      margin-bottom: 6px;
+    .lang {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
     }
-    #ec-lang-toggle {
-      background: #ffffff;
-      color: #000000;
-      border: 1px solid #000000;
-      font-family: inherit;
-      font-size: 0.85em;
-      padding: 6px 14px;
+    .lang button {
+      background: #fff;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      padding: 6px 12px;
+      font-size: 12px;
       cursor: pointer;
-      margin-bottom: 20px;
     }
-    #ec-lang-toggle:hover {
-      background: #000000;
-      color: #ffffff;
+    .lang button[aria-pressed="true"] {
+      background: var(--ink);
+      color: #fff;
     }
-    #ec-content-ja {
-      display: none;
+    section {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    dl.status {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 16px;
+      margin: 0;
+    }
+    dt { color: var(--muted); font-size: 13px; }
+    dd { margin: 0; font-size: 13px; text-align: right; }
+    .wait { font-weight: 600; }
+    .clock-wrap {
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .clock {
+      width: 72px;
+      height: 72px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      position: relative;
+      flex: 0 0 72px;
+    }
+    .clock .hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 4px;
+      height: 4px;
+      margin: -2px 0 0 -2px;
+      border-radius: 50%;
+      background: var(--line);
+      z-index: 2;
+    }
+    .clock .hand {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1px;
+      background: var(--line);
+      transform-origin: 50% 0;
+      transform: rotate(180deg);
+    }
+    .clock .hand-hour {
+      height: 18px;
+      margin-left: -0.5px;
+    }
+    .clock .hand-minute {
+      height: 26px;
+      margin-left: -0.5px;
+      opacity: 0.75;
+    }
+    /* 接続後だけ動かす。向きの説明はページに書かない。 */
+    .clock.is-live .hand-hour {
+      animation: ec-hand-hour 43200s linear infinite reverse;
+    }
+    .clock.is-live .hand-minute {
+      animation: ec-hand-minute 3600s linear infinite reverse;
+    }
+    @keyframes ec-hand-hour {
+      from { transform: rotate(180deg); }
+      to { transform: rotate(540deg); }
+    }
+    @keyframes ec-hand-minute {
+      from { transform: rotate(180deg); }
+      to { transform: rotate(540deg); }
+    }
+    .clock-note { font-size: 12px; color: var(--muted); }
+    .ec-live-digital {
+      margin: 6px 0 0;
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .world-clocks {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 8px 12px;
+      max-height: 480px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      padding: 12px;
+    }
+    .world-clocks .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+      border-bottom: 1px solid var(--line);
+      padding: 6px 0;
+    }
+    .world-clocks .row span:last-child {
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .world-clocks-meta {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .world-clocks-stream {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.65;
+      font-variant-numeric: tabular-nums;
+      border: 1px solid var(--line);
+      padding: 12px;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    .world-clocks-stream .wt-line {
+      display: block;
+      margin: 0;
+    }
+    .world-clocks-stream .wt-entry,
+    .world-clocks-stream .wt-dots {
+      white-space: nowrap;
+    }
+    .world-clocks .row.row-selectable {
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.12s ease;
+    }
+    .world-clocks .row.row-selectable:hover,
+    .world-clocks .row.row-selectable:focus-visible {
+      background: rgba(17, 17, 17, 0.04);
+      outline: none;
+    }
+    .world-clocks .row.row-selected {
+      background: rgba(17, 17, 17, 0.06);
+      font-weight: 600;
+    }
+    .world-clock-bottom {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.96);
+      border-top: 1px solid var(--ink);
+      box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .world-clock-bottom-inner {
+      width: min(720px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 10px 0 calc(10px + env(safe-area-inset-bottom, 0px));
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 12px;
+      align-items: baseline;
+    }
+    .world-clock-bottom-name {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .world-clock-bottom-time {
+      font-size: 15px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .world-clock-bottom-time:hover {
+      text-decoration: underline;
+    }
+    body.has-world-clock-bottom {
+      padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 8px 6px;
+      vertical-align: top;
+    }
+    th { font-weight: 600; color: var(--muted); }
+    .note { margin: 12px 0 0; font-size: 13px; color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 16px;
+      font-size: 13px;
+    }
+    .grid b { font-weight: 500; color: var(--muted); }
+    form {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0;
+    }
+    input[type="text"] {
+      flex: 1 1 220px;
+      min-height: 44px;
+      border: 1px solid var(--ink);
+      padding: 8px 10px;
+      font-size: 15px;
+    }
+    button.submit {
+      min-height: 44px;
+      padding: 8px 14px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+    .official {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .example {
+      margin-top: 16px;
+      padding: 12px;
+      border: 1px dashed var(--line);
+      font-size: 13px;
+    }
+    ul { padding-left: 18px; }
+    li { margin: 6px 0; }
+    /* トップ動画：横向き・画面幅いっぱい（elementary-code-top.mp4 正本） */
+    .hero-video-wrap {
+      width: 100vw;
+      max-height: min(56.25vw, 72vh);
+      min-height: 200px;
+      margin: 0 0 8px;
+      margin-left: calc(50% - 50vw);
+      overflow: hidden;
+      background: #0a0c10;
+    }
+    .hero-video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: min(56.25vw, 72vh);
+      object-fit: cover;
+      object-position: center center;
+    }
+    .comic-fullbleed-section {
+      width: 100vw;
+      margin: 0 0 8px;
+      margin-left: calc(50% - 50vw);
+      background: #eef2f8;
+    }
+    .comic-fullbleed-section .comic-8-wrap img.comic-8-base {
+      pointer-events: none;
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+    @media (max-width: 640px) {
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
+      td { border: 0; border-bottom: 1px solid var(--line); padding-left: 0; }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        margin-bottom: 2px;
+      }
     }
   </style>
+</head>
+<body>
+  <div class="hero-video-wrap" aria-label="Elementary Code トップ動画">
+    <video
+      class="hero-video"
+      src="assets/elementary-code-top.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true"
+    ></video>
+  </div>
 
-  <button id="ec-lang-toggle" type="button" onclick="
-    var en = document.getElementById('ec-content-en');
-    var ja = document.getElementById('ec-content-ja');
-    var btn = document.getElementById('ec-lang-toggle');
-    if (en.style.display === 'none') {
-      en.style.display = '';
-      ja.style.display = 'none';
-      btn.textContent = '日本語';
-    } else {
-      en.style.display = 'none';
-      ja.style.display = '';
-      btn.textContent = 'English';
+  <section id="elementary-comic" class="comic-fullbleed-section ec-comic-fullbleed" aria-label="ELEMENTARY CODE 8コマ（ロッキー作 · 第2コマ LIVE）">
+    <div class="comic-8-wrap">
+      <img
+        class="comic-8-base"
+        src="assets/elementary_code_rocky_8panel.png?v=p3-overlay-live-prod1"
+        width="1024"
+        height="678"
+        alt="ELEMENTARY CODE 8コマ漫画">
+      <div class="comic-panel3-keynote" aria-hidden="true">
+        <img
+          src="assets/elementary_code_panel3_keynote.png?v=p3-overlay-live-prod1"
+          width="256"
+          height="202"
+          alt="">
+      </div>
+      <div class="comic-panel2-screen" aria-hidden="true">
+        <div class="comic-panel2-static-mask" aria-hidden="true"></div>
+        <time
+          id="comic-panel2-clock"
+          data-ec-comic-digital
+          data-ec-tz="Asia/Tokyo"
+          aria-live="polite"
+          aria-label="東京時刻 LIVE（100分の1秒）">--:--:--.--</time>
+      </div>
+    </div>
+  </section>
+
+  <header>
+    <h1>ELEMENTARY CODE</h1>
+    <p class="sub">Digital Authentication System</p>
+    <p class="banner" data-i="preview">公開前プレビュー。ドメインにはまだ上げません。</p>
+    <p class="banner official" data-i="official">公式検証先は elementarycode.tokyo のみです。類似サイトやスクリーンショットだけでは真正性を証明できません。</p>
+    <div class="lang">
+      <button type="button" id="lang-ja" aria-pressed="true">日本語</button>
+      <button type="button" id="lang-en" aria-pressed="false">English</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="world-clocks">
+      <h2 data-i="wc_title">World clocks — 195 regions</h2>
+      <p class="note" data-i="wc_help">世界195ヶ国・地域の現在時刻です（分まで）。端末の時計を基準に表示します。</p>
+      <div class="world-clocks-stream" id="world-clocks-stream" aria-live="polite"></div>
+      <div class="world-clocks" id="world-clocks-list" aria-live="polite"></div>
+      <p class="world-clocks-meta" id="world-clocks-meta"></p>
+    </section>
+
+    <section id="status">
+      <h2>1. Status</h2>
+      <dl class="status">
+        <dt>System Status</dt><dd class="wait">PREPARING</dd>
+        <dt>Server</dt><dd class="wait">SERVER UNAVAILABLE</dd>
+        <dt>Authenticity Verification</dt><dd>UNAVAILABLE</dd>
+        <dt>Duplicate Issuance</dt><dd>0</dd>
+        <dt>logic version (public)</dt><dd>EC-PUBLIC-1</dd>
+      </dl>
+      <div class="clock-wrap">
+        <div class="clock" id="status-clock" aria-hidden="true">
+          <span class="hand hand-hour"></span>
+          <span class="hand hand-minute"></span>
+          <span class="hub"></span>
+        </div>
+        <div>
+          <p class="clock-note" data-i="clock">稼働表示は、サーバー接続が確認できたあとに出します。いまは止めています。</p>
+          <p class="clock-note" data-i="no_code_q">コードや仕組みについてのご質問には、お答えしておりません。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="icons">
+      <h2>2. Air Icon</h2>
+      <table>
+        <thead>
+          <tr>
+            <th data-i="c_name">正式名称</th>
+            <th data-i="c_color">色</th>
+            <th data-i="c_use">用途</th>
+            <th data-i="c_unit">販売単位</th>
+            <th data-i="c_price">販売価格</th>
+            <th data-i="c_cap">発行上限</th>
+            <th data-i="c_ed">限定 / 通常</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Name">PURE WHITE</td>
+            <td data-label="Color" data-i="white">白</td>
+            <td data-label="Use" data-i="use_call">発信アイコン（通話）</td>
+            <td data-label="Unit" data-i="unit_dozen">1ダース（12個）</td>
+            <td data-label="Price" data-i="price_dozen">220円 / 1ダース<br>1個換算：約18.3円（参考）</td>
+            <td data-label="Cap" data-i="und">未確定</td>
+            <td data-label="Edition" data-i="std">通常</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note" data-i="only_white">初回販売は PURE WHITE のみです。販売価格は 1ダース 220円です。</p>
+    </section>
+
+    <section id="issuance">
+      <h2>3. Issuance</h2>
+      <div class="grid">
+        <b>PURE WHITE</b><span data-i="pw_iss">発行 0（上限は未確定）</span>
+        <b data-i="last">最終発行日時</b><span data-i="not_yet">未発行</span>
+        <b>Duplicate Issuance</b><span>0</span>
+        <b>System</b><span>PREPARING</span>
+        <b data-i="lat">検証応答時間</b><span>SERVER UNAVAILABLE</span>
+        <b>logic version (public)</b><span>EC-PUBLIC-1</span>
+      </div>
+    </section>
+
+    <section id="explorer">
+      <h2>4. Icon Explorer</h2>
+      <p class="note" data-i="ex_help">シリアル番号だけを入力します。判定の正は公式サーバーのリアルタイム照合です。シリアル番号だけでは所有権を証明できません。</p>
+      <form id="explorer-form">
+        <input type="text" id="q" maxlength="64" autocomplete="off" spellcheck="false" placeholder="PURE WHITE">
+        <button class="submit" type="submit" data-i="verify">確認</button>
+      </form>
+      <div class="result" id="explorer-result"></div>
+      <p class="official" data-i="confirm_domain">公式ドメインで確認してください：elementarycode.tokyo</p>
+      <div class="example">
+        <div data-i="ex_title">接続後の表示例（いまの判定ではありません）</div>
+        <pre>PURE WHITE
+
+AUTHENTIC
+STATUS：ACTIVE
+ISSUED：VALID
+DUPLICATE：NONE
+ELEMENTARY CODE：VERIFIED</pre>
+        <p class="note" data-i="ex_nf">存在しない場合：NOT FOUND / INVALID</p>
+      </div>
+    </section>
+
+    <section id="spoof">
+      <h2 data-i="s5">5. Official source</h2>
+      <ul>
+        <li data-i="sp1">公式検証先は elementarycode.tokyo のみです</li>
+        <li data-i="sp2">類似サイトやスクリーンショットだけでは真正性を証明できません</li>
+        <li data-i="sp3">真正性判定は、公式サーバーへのリアルタイム照合結果を正とします</li>
+        <li data-i="sp4">シリアル番号だけでは所有権を証明できません</li>
+        <li data-i="sp5">所有者の個人情報は公開しません</li>
+        <li data-i="sp6">Air Face 内では、認証済みの本人所有アイコンだけをプロフィールに表示します。画像をコピーして貼っただけでは VERIFIED を付けません</li>
+        <li data-i="sp7">ページの見た目をコピーしても、AIRの毎回認証・最新認証日時・履歴発信はコピーできません。真正性はアプリ側の認証が正です</li>
+        <li data-i="sp8">コードや仕組みについてのご質問には、お答えしておりません</li>
+      </ul>
+    </section>
+
+    <section id="authenticity">
+      <h2>6. Authenticity</h2>
+      <p data-i="auth_p1">正式な Air Icon は送信時に、デザイン・色・シリアル番号・必要な公開識別情報を確定し、完成画像として送ります。</p>
+      <p data-i="auth_p2">画像のコピー自体を所有権とは扱いません。真正性・使用権・将来の所有権移転は、サーバー側記録を正とします。</p>
+    </section>
+
+    <section id="prohibited">
+      <h2>7. Prohibited</h2>
+      <ul>
+        <li data-i="p1">アイコン画像の改変による偽装</li>
+        <li data-i="p2">偽造シリアルの使用</li>
+        <li data-i="p3">真正性表示の改変</li>
+        <li data-i="p4">認証システムへの不正アクセス</li>
+        <li data-i="p5">解析を目的とする不正な大量アクセス</li>
+        <li data-i="p6">他人を装った販売</li>
+        <li data-i="p7">Air Face が認めていない方法での真正性表示</li>
+      </ul>
+    </section>
+
+    <section id="price">
+      <h2>8. Price</h2>
+      <p data-i="price_p1">PURE WHITE の正式価格は 1ダース 220円です。1個あたり約18.3円は参考換算です。販売価格と将来の市場価値は別です。</p>
+      <ul>
+        <li data-i="np1">必ず値上がりする、とは言いません</li>
+        <li data-i="np2">投資商品である、とは言いません</li>
+        <li data-i="np3">将来の金額を約束しません</li>
+        <li data-i="np4">換金・利益・買い戻しを保証しません</li>
+        <li data-i="np5">現時点で暗号資産である、とは表示しません</li>
+      </ul>
+    </section>
+
+    <section id="legal">
+      <h2>9. Notice</h2>
+      <ul>
+        <li data-i="l1">Air Icon は現時点では法定通貨ではありません</li>
+        <li data-i="l2">現在、換金を保証していません</li>
+        <li data-i="l3">市場価値を保証していません</li>
+        <li data-i="l4">将来、仕様・法令・サービス内容が変わる場合があります</li>
+        <li data-i="l5">第三者市場での取引機能は現在提供していません</li>
+      </ul>
+    </section>
+
+    <section id="privacy">
+      <h2>10. Privacy</h2>
+      <p data-i="priv">公開 Explorer は個人情報を使いません。シリアル番号から現在の所有者を特定できない設計にします。</p>
+    </section>
+  </main>
+
+    <section id="official-urls" aria-label="Official domains">
+      <h2>Official domains</h2>
+      <p class="note">Apple / 審査・真正性確認用。準備中ドメインも公式予定として掲示します。</p>
+      <ul>
+        <li><strong>Elementary Code（正本）</strong> <a href="https://aicode.tokyo/">https://aicode.tokyo</a> — 準備中</li>
+        <li><strong>AIRロビンソン</strong> <a href="https://tandemair.tokyo/">https://tandemair.tokyo</a> — 準備中</li>
+        <li><strong>早稲田東京（会社案内）</strong> <a href="https://waseda-inspection.com/#company">waseda-inspection.com/#company</a></li>
+        <li><strong>移行期 EC ページ</strong> <a href="https://elementarycode.tokyo/">https://elementarycode.tokyo</a> — 公開中</li>
+        <li><strong>Air Face</strong> <a href="https://airface.tokyo/">https://airface.tokyo</a> — 準備中</li>
+      </ul>
+    </section>
+
+  <footer>
+    <div>Primary verification host: aicode.tokyo（app） / live preview: elementarycode.tokyo</div>
+    <div data-i="foot">売買所・換金・ユーザー間売買は未実装。本ページは公開前プレビューです。</div>
+    <p class="official" data-i="confirm_domain">公式ドメインで確認してください：aicode.tokyo（正本）・elementarycode.tokyo（移行期）</p>
+  </footer>
+
+  <div id="world-clock-bottom" class="world-clock-bottom" hidden>
+    <div class="world-clock-bottom-inner">
+      <div>
+        <div class="world-clock-bottom-name" id="world-clock-bottom-name"></div>
+        <div class="note" style="margin:2px 0 0;font-size:11px;" data-i="wc_bottom_hint"></div>
+      </div>
+      <a
+        id="world-clock-bottom-time"
+        class="world-clock-bottom-time"
+        href="#world-clocks"
+      ></a>
+    </div>
+  </div>
+
+  <script>
+    const copy = {
+      ja: {
+        preview: "公開前プレビュー。ドメインにはまだ上げません。",
+        official: "公式検証先は elementarycode.tokyo のみです。類似サイトやスクリーンショットだけでは真正性を証明できません。",
+        clock: "稼働表示は、サーバー接続が確認できたあとに出します。いまは止めています。",
+        no_code_q: "コードや仕組みについてのご質問には、お答えしておりません。",
+        wc_title: "世界時計 — 195ヶ国・地域",
+        wc_help: "世界195ヶ国・地域の現在時刻です（分まで）。端末の時計を基準に表示します。",
+        wc_meta: "件数: ",
+        wc_fail: "時計データを読み込めませんでした。",
+        wc_bottom_hint: "一覧をタップすると、この下の時刻にリンクします（分まで表示）。",
+        wc_bottom_time: "—",
+        c_name: "正式名称",
+        c_color: "色",
+        c_use: "用途",
+        c_unit: "販売単位",
+        c_price: "販売価格",
+        c_cap: "発行上限",
+        c_ed: "限定 / 通常",
+        white: "白",
+        use_call: "発信アイコン（通話）",
+        unit_dozen: "1ダース（12個）",
+        price_dozen: "220円 / 1ダース　1個換算：約18.3円（参考）",
+        und: "未確定",
+        std: "通常",
+        only_white: "初回販売は PURE WHITE のみです。販売価格は 1ダース 220円です。",
+        pw_iss: "発行 0（上限は未確定）",
+        last: "最終発行日時",
+        not_yet: "未発行",
+        lat: "検証応答時間",
+        ex_help: "シリアル番号だけを入力します。判定の正は公式サーバーのリアルタイム照合です。シリアル番号だけでは所有権を証明できません。",
+        verify: "確認",
+        confirm_domain: "公式ドメインで確認してください：elementarycode.tokyo",
+        ex_title: "接続後の表示例（いまの判定ではありません）",
+        ex_nf: "存在しない場合：NOT FOUND / INVALID",
+        s5: "5. Official source",
+        sp1: "公式検証先は elementarycode.tokyo のみです",
+        sp2: "類似サイトやスクリーンショットだけでは真正性を証明できません",
+        sp3: "真正性判定は、公式サーバーへのリアルタイム照合結果を正とします",
+        sp4: "シリアル番号だけでは所有権を証明できません",
+        sp5: "所有者の個人情報は公開しません",
+        sp6: "Air Face 内では、認証済みの本人所有アイコンだけをプロフィールに表示します。画像をコピーして貼っただけでは VERIFIED を付けません",
+        sp7: "ページの見た目をコピーしても、AIRの毎回認証・最新認証日時・履歴発信はコピーできません。真正性はアプリ側の認証が正です",
+        sp8: "コードや仕組みについてのご質問には、お答えしておりません",
+        auth_p1: "正式な Air Icon は送信時に、デザイン・色・シリアル番号・必要な公開識別情報を確定し、完成画像として送ります。",
+        auth_p2: "画像のコピー自体を所有権とは扱いません。真正性・使用権・将来の所有権移転は、サーバー側記録を正とします。ページの簡易コピーガードは完全防止ではありません。本物の判定はアプリ側の毎回認証です。",
+        p1: "アイコン画像の改変による偽装",
+        p2: "偽造シリアルの使用",
+        p3: "真正性表示の改変",
+        p4: "認証システムへの不正アクセス",
+        p5: "解析を目的とする不正な大量アクセス",
+        p6: "他人を装った販売",
+        p7: "Air Face が認めていない方法での真正性表示",
+        price_p1: "PURE WHITE の正式価格は 1ダース 220円です。1個あたり約18.3円は参考換算です。販売価格と将来の市場価値は別です。",
+        np1: "必ず値上がりする、とは言いません",
+        np2: "投資商品である、とは言いません",
+        np3: "将来の金額を約束しません",
+        np4: "換金・利益・買い戻しを保証しません",
+        np5: "現時点で暗号資産である、とは表示しません",
+        l1: "Air Icon は現時点では法定通貨ではありません",
+        l2: "現在、換金を保証していません",
+        l3: "市場価値を保証していません",
+        l4: "将来、仕様・法令・サービス内容が変わる場合があります",
+        l5: "第三者市場での取引機能は現在提供していません",
+        priv: "公開 Explorer は個人情報を使いません。シリアル番号から現在の所有者を特定できない設計にします。",
+        foot: "売買所・換金・ユーザー間売買は未実装。本ページは公開前プレビューです。",
+        unavailable: "SERVER UNAVAILABLE\n真正判定は公式サーバー接続後に行います。\n公式ドメインで確認してください：elementarycode.tokyo"
+      },
+      en: {
+        preview: "Pre-publish preview. Not deployed to the domain yet.",
+        official: "The only official verification host is elementarycode.tokyo. A similar site or a screenshot cannot prove authenticity.",
+        clock: "The status indicator appears only after server connection is confirmed. It is stopped now.",
+        no_code_q: "We do not answer questions about the code or internal mechanism.",
+        wc_title: "World clocks — 195 regions",
+        wc_help: "Local times for 195 countries and regions (to the minute). Based on this device clock.",
+        wc_meta: "Count: ",
+        wc_fail: "Could not load clock data.",
+        wc_bottom_hint: "Tap a region above to link its time here (down to the minute).",
+        wc_bottom_time: "—",
+        c_name: "Name",
+        c_color: "Color",
+        c_use: "Use",
+        c_unit: "Unit",
+        c_price: "Sale price",
+        c_cap: "Issuance cap",
+        c_ed: "Limited / Standard",
+        white: "White",
+        use_call: "Outbound call icon",
+        unit_dozen: "1 dozen (12)",
+        price_dozen: "¥220 / dozen. Per icon: about ¥18.3 (reference)",
+        und: "Undetermined",
+        std: "Standard",
+        only_white: "First sale is PURE WHITE only. Sale price is ¥220 per dozen.",
+        pw_iss: "Issued 0 (cap undetermined)",
+        last: "Last issued",
+        not_yet: "Not issued",
+        lat: "Verification latency",
+        ex_help: "Enter a serial only. The source of truth is a real-time check on the official server. A serial alone does not prove ownership.",
+        verify: "Verify",
+        confirm_domain: "Confirm on the official domain: elementarycode.tokyo",
+        ex_title: "Example after connection (not a live verdict)",
+        ex_nf: "If missing: NOT FOUND / INVALID",
+        s5: "5. Official source",
+        sp1: "The only official verification host is elementarycode.tokyo",
+        sp2: "A similar site or a screenshot cannot prove authenticity",
+        sp3: "Authenticity is the real-time result from the official server",
+        sp4: "A serial number alone does not prove ownership",
+        sp5: "Owner personal data is not published",
+        sp6: "In Air Face, only authenticated icons owned by the user may appear on the profile. Pasting a copied image does not receive VERIFIED",
+        sp7: "Copying the page look does not copy AIR re-auth, latest auth time, or history outbound. Authenticity is decided in the app",
+        sp8: "We do not answer questions about the code or internal mechanism",
+        auth_p1: "A genuine Air Icon locks design, color, serial, and required public identifiers, then sends a finished image.",
+        auth_p2: "Copying the image is not ownership. Authenticity, use rights, and future transfer follow server records. Page copy guards are light only. Real verdicts require in-app authentication each time.",
+        p1: "Faking an icon by altering its image",
+        p2: "Using a forged serial",
+        p3: "Altering authenticity marks",
+        p4: "Unauthorized access to the authentication system",
+        p5: "Bulk access for the purpose of analysis",
+        p6: "Selling while impersonating another person",
+        p7: "Showing authenticity by any method Air Face has not authorized",
+        price_p1: "Official PURE WHITE price is ¥220 per dozen. About ¥18.3 per icon is a reference conversion. Sale price is not future market value.",
+        np1: "No statement that value will rise",
+        np2: "Not described as an investment product",
+        np3: "No promised future price",
+        np4: "No guarantee of cash-out, profit, or buyback",
+        np5: "Not described as crypto-assets at this time",
+        l1: "Air Icon is not legal tender at this time",
+        l2: "Cash-out is not guaranteed",
+        l3: "Market value is not guaranteed",
+        l4: "Specifications, laws, and service terms may change",
+        l5: "No third-party market trading is offered now",
+        priv: "The public Explorer does not use personal data. A serial cannot identify the current owner.",
+        foot: "No marketplace, cash-out, or peer trading. This page is a pre-publish preview.",
+        unavailable: "SERVER UNAVAILABLE\nAuthenticity checks start after the official server is connected.\nConfirm on the official domain: elementarycode.tokyo"
+      }
+    };
+
+    let lang = "ja";
+    let worldClockRows = [];
+    let selectedWorldClock = { name: "Japan", tz: "Asia/Tokyo" };
+    function applyLang() {
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i]").forEach((el) => {
+        const key = el.getAttribute("data-i");
+        const text = copy[lang][key];
+        if (text) el.textContent = text;
+      });
+      document.getElementById("lang-ja").setAttribute("aria-pressed", String(lang === "ja"));
+      document.getElementById("lang-en").setAttribute("aria-pressed", String(lang === "en"));
+      const result = document.getElementById("explorer-result");
+      result.textContent = copy[lang].unavailable;
+      if (worldClockRows.length) {
+        renderWorldClocks();
+      }
     }
-  ">日本語</button>
+    document.getElementById("lang-ja").onclick = () => { lang = "ja"; applyLang(); };
+    document.getElementById("lang-en").onclick = () => { lang = "en"; applyLang(); };
+    applyLang();
 
-  <div id="ec-content-en">
-    <h2>Elementary Code</h2>
-    <p>Elementary Code is a new authentication code generated within the dedicated application.</p>
-    <p>The code is embedded in a transmission icon. By checking the icon with a compatible application and device, the connection with the other party can be authenticated.</p>
-    <p>One of its key features is that communication can be initiated through a dedicated transmission icon without directly sharing a conventional telephone number.</p>
+    const worldList = document.getElementById("world-clocks-list");
+    const worldStream = document.getElementById("world-clocks-stream");
+    const worldMeta = document.getElementById("world-clocks-meta");
+    let worldStreamResizeObserver = null;
+    const worldBottom = document.getElementById("world-clock-bottom");
+    const worldBottomName = document.getElementById("world-clock-bottom-name");
+    const worldBottomTime = document.getElementById("world-clock-bottom-time");
 
-    <h3>How it works</h3>
-    <ol>
-      <li>Generate a transmission icon within the dedicated application.</li>
-      <li>The Elementary Code is embedded in the icon.</li>
-      <li>The recipient checks and authenticates the code using the compatible application.</li>
-      <li>Once authentication is completed, communication can begin.</li>
-    </ol>
+    function formatWorldTime(timeZone) {
+      try {
+        return new Intl.DateTimeFormat(lang === "ja" ? "ja-JP" : "en-GB", {
+          timeZone,
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).format(new Date());
+      } catch (error) {
+        return "--:--:--";
+      }
+    }
 
-    <p>Elementary Code is not simply a displayed number or character string. It is designed to authenticate the relationship between the transmission icon and the other party by combining the dedicated application with a compatible device.</p>
-    <p>Authentication is designed to be completed in a short period of time.</p>
-    <p>For security and technical reasons, the specific generation, verification algorithms, and internal technical specifications are not publicly disclosed.</p>
-  </div>
+    function formatWorldTimeLinked(timeZone) {
+      try {
+        const locale = lang === "ja" ? "ja-JP" : "en-GB";
+        const datePart = new Intl.DateTimeFormat(locale, {
+          timeZone,
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          weekday: "short",
+        }).format(new Date());
+        const timePart = new Intl.DateTimeFormat(locale, {
+          timeZone,
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).format(new Date());
+        return `${datePart}　${timePart}`;
+      } catch (error) {
+        return "--";
+      }
+    }
 
-  <div id="ec-content-ja">
-    <h2>エレメンタリーコード</h2>
-    <p>エレメンタリーコードは、専用アプリの中で生成される、新しい認証コードです。</p>
-    <p>発信アイコンに組み込まれたエレメンタリーコードを、対応するアプリと端末で確認することで、相手とのつながりを認証します。</p>
-    <p>通常の電話番号を直接伝えることなく、専用の発信アイコンを通してコミュニケーションを始められることが大きな特徴です。</p>
+    function selectWorldClock(row, scrollToBottom) {
+      if (!row || !row.tz) return;
+      selectedWorldClock = { name: row.name, tz: row.tz };
+      if (worldList) {
+        worldList.querySelectorAll(".row-selectable").forEach((el) => {
+          el.classList.toggle("row-selected", el.dataset.tz === row.tz);
+        });
+      }
+      updateWorldClockBottom();
+      if (scrollToBottom && worldBottom) {
+        worldBottom.hidden = false;
+        document.body.classList.add("has-world-clock-bottom");
+        worldBottom.scrollIntoView({ behavior: "smooth", block: "end" });
+      }
+    }
 
-    <h3>かんたんな仕組み</h3>
-    <ol>
-      <li>専用アプリで発信アイコンを生成します。</li>
-      <li>アイコンにエレメンタリーコードが組み込まれます。</li>
-      <li>相手側の対応アプリでコードを確認・認証します。</li>
-      <li>認証が完了すると、コミュニケーションを開始できます。</li>
-    </ol>
+    function updateWorldClockBottom() {
+      if (!worldBottom || !worldBottomName || !worldBottomTime) return;
+      worldBottom.hidden = false;
+      document.body.classList.add("has-world-clock-bottom");
+      worldBottomName.textContent = selectedWorldClock.name + " · " + selectedWorldClock.tz;
+      worldBottomTime.textContent = formatWorldTimeLinked(selectedWorldClock.tz);
+      worldBottomTime.setAttribute(
+        "aria-label",
+        selectedWorldClock.name + " " + formatWorldTimeLinked(selectedWorldClock.tz)
+      );
+    }
 
-    <p>エレメンタリーコードは、単なる数字や文字列を表示するためのものではありません。専用アプリと対応する端末を組み合わせて確認することで、発信アイコンと相手との関係を認証するための仕組みです。</p>
-    <p>認証は短時間で行える設計になっています。</p>
-    <p>安全性と技術上の理由から、エレメンタリーコードを生成・検証する具体的なアルゴリズムや内部仕様の詳細は公開していません。</p>
-  </div>
-</div>
-<section aria-label="Elementary Code benchmark" style="padding:30px 22px;max-width:1100px;margin:auto;font-family:Arial,sans-serif"><h2 style="font-size:clamp(24px,4vw,36px)">Elementary Code｜高速転送・一致照合試験</h2><p style="font-size:clamp(18px,2.3vw,24px);line-height:1.6">2026年10月10日の参考測定：25桁と30桁をそれぞれ10万件測定。25桁：総時間14.302ミリ秒・平均0.14302マイクロ秒／件。30桁：総時間14.567ミリ秒・平均0.14567マイクロ秒／件。両方とも10万件すべて一致、入力重複0件。世界の公開技術データを調査した結果、現時点で同条件においてELEMENTARY CODEを上回る処理性能は確認されていません。現在確認できる範囲で、世界最速の処理性能です。</p><a href="elementary-code.html#speed-test" style="font-size:20px;font-weight:bold;color:#000">測定条件・詳しい説明を見る →</a></section>
-<section id="plug-lock-development" aria-label="Plug Lock 開発中" style="padding:42px 20px 54px;background:#f6f7f8;color:#111;font-family:'Yu Mincho','Hiragino Mincho ProN',serif">
-<div style="max-width:940px;margin:auto">
-<h2 style="font-size:32px;line-height:1.4;margin:0 0 16px">Plug Lock × ELEMENTARY CODE｜新しい鍵のシステムを開発中</h2>
-<p style="font-size:21px;line-height:1.8">デジタル鍵の自動生成やスマートフォン認証が普及する現在、Plug Lockでは、利用者のデバイスを起点に鍵を直接発注・取得し、人手を介さず接続前に認証する仕組みを開発しています。</p>
-<p style="font-size:21px;line-height:1.8;font-weight:bold">高速処理 × 一意性 × 人手非介在 × デバイスからの直接発注・取得</p>
-<p style="font-size:19px;line-height:1.8">調査した公開技術情報の範囲では、これらの特徴を同じ構成で備える仕組みは確認できていません。住宅・自動車などへの応用も視野に入れています。</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:28px">
-<div style="background:#fff;border:2px solid #555;padding:24px">
-<h3 style="font-size:25px;margin:0 0 12px">Normal｜無料版</h3>
-<p style="font-size:19px;line-height:1.8">公式サイト帳・コード付きガラスアイコン・在庫管理に加え、登録した支払いをまとめて一時停止するワンタップ操作を開発中です。再開する際はApple Accountを利用した認証を行う設計です。カードごとの細かな停止条件は設けません。</p>
-</div>
-<div style="background:#fff;border:2px solid #555;padding:24px">
-<h3 style="font-size:25px;margin:0 0 12px">REVOLVER｜有料版</h3>
-<p style="font-size:19px;line-height:1.8">カード別に、金額・時間・曜日・用途などの細かな制限を設定する機能を開発中です。個別管理を必要とする利用者や事業者向けの仕組みです。</p>
-<p style="font-size:19px;font-weight:bold">月額1,100円（予定）</p>
-</div>
-</div>
-<p style="font-size:17px;line-height:1.7;margin-top:22px">現在開発中の機能です。実際の支払い停止・再開には決済サービス等との連携が必要です。</p>
-</div></section>
-<section id="clock-wrap"><h1 id="clock-title">WORLD TIME</h1><div id="clock-list"></div></section>
-<script>
-(function(){
-var C=[["Algeria","Africa/Algiers"],["Angola","Africa/Luanda"],["Benin","Africa/Porto-Novo"],["Botswana","Africa/Gaborone"],["Burkina Faso","Africa/Ouagadougou"],["Burundi","Africa/Bujumbura"],["Cabo Verde","Atlantic/Cape_Verde"],["Cameroon","Africa/Douala"],["Central African Republic","Africa/Bangui"],["Chad","Africa/Ndjamena"],["Comoros","Indian/Comoro"],["Congo-Brazzaville","Africa/Brazzaville"],["Congo-Kinshasa","Africa/Kinshasa"],["Cote d'Ivoire","Africa/Abidjan"],["Djibouti","Africa/Djibouti"],["Egypt","Africa/Cairo"],["Equatorial Guinea","Africa/Malabo"],["Eritrea","Africa/Asmara"],["Eswatini","Africa/Mbabane"],["Ethiopia","Africa/Addis_Ababa"],["Gabon","Africa/Libreville"],["Gambia","Africa/Banjul"],["Ghana","Africa/Accra"],["Guinea","Africa/Conakry"],["Guinea-Bissau","Africa/Bissau"],["Kenya","Africa/Nairobi"],["Lesotho","Africa/Maseru"],["Liberia","Africa/Monrovia"],["Libya","Africa/Tripoli"],["Madagascar","Indian/Antananarivo"],["Malawi","Africa/Blantyre"],["Mali","Africa/Bamako"],["Mauritania","Africa/Nouakchott"],["Mauritius","Indian/Mauritius"],["Morocco","Africa/Casablanca"],["Mozambique","Africa/Maputo"],["Namibia","Africa/Windhoek"],["Niger","Africa/Niamey"],["Nigeria","Africa/Lagos"],["Rwanda","Africa/Kigali"],["Sao Tome and Principe","Africa/Sao_Tome"],["Senegal","Africa/Dakar"],["Seychelles","Indian/Mahe"],["Sierra Leone","Africa/Freetown"],["Somalia","Africa/Mogadishu"],["South Africa","Africa/Johannesburg"],["South Sudan","Africa/Juba"],["Sudan","Africa/Khartoum"],["Tanzania","Africa/Dar_es_Salaam"],["Togo","Africa/Lome"],["Tunisia","Africa/Tunis"],["Uganda","Africa/Kampala"],["Zambia","Africa/Lusaka"],["Zimbabwe","Africa/Harare"],["Antigua and Barbuda","America/Antigua"],["Bahamas","America/Nassau"],["Barbados","America/Barbados"],["Belize","America/Belize"],["Canada","America/Toronto"],["Costa Rica","America/Costa_Rica"],["Cuba","America/Havana"],["Dominica","America/Dominica"],["Dominican Republic","America/Santo_Domingo"],["El Salvador","America/El_Salvador"],["Grenada","America/Grenada"],["Guatemala","America/Guatemala"],["Haiti","America/Port-au-Prince"],["Honduras","America/Tegucigalpa"],["Jamaica","America/Jamaica"],["Mexico","America/Mexico_City"],["Nicaragua","America/Managua"],["Panama","America/Panama"],["Saint Kitts and Nevis","America/St_Kitts"],["Saint Lucia","America/St_Lucia"],["Saint Vincent and the Grenadines","America/St_Vincent"],["Trinidad and Tobago","America/Port_of_Spain"],["United States","America/New_York"],["Argentina","America/Argentina/Buenos_Aires"],["Bolivia","America/La_Paz"],["Brazil","America/Sao_Paulo"],["Chile","America/Santiago"],["Colombia","America/Bogota"],["Ecuador","America/Guayaquil"],["Guyana","America/Guyana"],["Paraguay","America/Asuncion"],["Peru","America/Lima"],["Suriname","America/Paramaribo"],["Uruguay","America/Montevideo"],["Venezuela","America/Caracas"],["Afghanistan","Asia/Kabul"],["Armenia","Asia/Yerevan"],["Azerbaijan","Asia/Baku"],["Bahrain","Asia/Bahrain"],["Bangladesh","Asia/Dhaka"],["Bhutan","Asia/Thimphu"],["Brunei","Asia/Brunei"],["Cambodia","Asia/Phnom_Penh"],["China","Asia/Shanghai"],["Cyprus","Asia/Nicosia"],["Georgia","Asia/Tbilisi"],["India","Asia/Kolkata"],["Indonesia","Asia/Jakarta"],["Iran","Asia/Tehran"],["Iraq","Asia/Baghdad"],["Israel","Asia/Jerusalem"],["Japan","Asia/Tokyo"],["Jordan","Asia/Amman"],["Kazakhstan","Asia/Almaty"],["Kuwait","Asia/Kuwait"],["Kyrgyzstan","Asia/Bishkek"],["Laos","Asia/Vientiane"],["Lebanon","Asia/Beirut"],["Malaysia","Asia/Kuala_Lumpur"],["Maldives","Indian/Maldives"],["Mongolia","Asia/Ulaanbaatar"],["Myanmar","Asia/Yangon"],["Nepal","Asia/Kathmandu"],["North Korea","Asia/Pyongyang"],["Oman","Asia/Muscat"],["Pakistan","Asia/Karachi"],["Philippines","Asia/Manila"],["Qatar","Asia/Qatar"],["Saudi Arabia","Asia/Riyadh"],["Singapore","Asia/Singapore"],["South Korea","Asia/Seoul"],["Sri Lanka","Asia/Colombo"],["Syria","Asia/Damascus"],["Tajikistan","Asia/Dushanbe"],["Thailand","Asia/Bangkok"],["Timor-Leste","Asia/Dili"],["Turkey","Europe/Istanbul"],["Turkmenistan","Asia/Ashgabat"],["United Arab Emirates","Asia/Dubai"],["Uzbekistan","Asia/Tashkent"],["Vietnam","Asia/Ho_Chi_Minh"],["Yemen","Asia/Aden"],["Palestine","Asia/Gaza"],["Albania","Europe/Tirane"],["Andorra","Europe/Andorra"],["Austria","Europe/Vienna"],["Belarus","Europe/Minsk"],["Belgium","Europe/Brussels"],["Bosnia and Herzegovina","Europe/Sarajevo"],["Bulgaria","Europe/Sofia"],["Croatia","Europe/Zagreb"],["Czech Republic","Europe/Prague"],["Denmark","Europe/Copenhagen"],["Estonia","Europe/Tallinn"],["Finland","Europe/Helsinki"],["France","Europe/Paris"],["Germany","Europe/Berlin"],["Greece","Europe/Athens"],["Hungary","Europe/Budapest"],["Iceland","Atlantic/Reykjavik"],["Ireland","Europe/Dublin"],["Italy","Europe/Rome"],["Latvia","Europe/Riga"],["Liechtenstein","Europe/Vaduz"],["Lithuania","Europe/Vilnius"],["Luxembourg","Europe/Luxembourg"],["Malta","Europe/Malta"],["Moldova","Europe/Chisinau"],["Monaco","Europe/Monaco"],["Montenegro","Europe/Podgorica"],["Netherlands","Europe/Amsterdam"],["North Macedonia","Europe/Skopje"],["Norway","Europe/Oslo"],["Poland","Europe/Warsaw"],["Portugal","Europe/Lisbon"],["Romania","Europe/Bucharest"],["Russia","Europe/Moscow"],["San Marino","Europe/San_Marino"],["Serbia","Europe/Belgrade"],["Slovakia","Europe/Bratislava"],["Slovenia","Europe/Ljubljana"],["Spain","Europe/Madrid"],["Sweden","Europe/Stockholm"],["Switzerland","Europe/Zurich"],["Ukraine","Europe/Kyiv"],["United Kingdom","Europe/London"],["Vatican City","Europe/Vatican"],["Australia","Australia/Sydney"],["Fiji","Pacific/Fiji"],["Kiribati","Pacific/Tarawa"],["Marshall Islands","Pacific/Majuro"],["Micronesia","Pacific/Chuuk"],["Nauru","Pacific/Nauru"],["New Zealand","Pacific/Auckland"],["Palau","Pacific/Palau"],["Papua New Guinea","Pacific/Port_Moresby"],["Samoa","Pacific/Apia"],["Solomon Islands","Pacific/Guadalcanal"],["Tonga","Pacific/Tongatapu"],["Tuvalu","Pacific/Funafuti"],["Vanuatu","Pacific/Efate"]];
-C=C.filter(function(x){return x[1]!=='Asia/Tokyo'});C.push(['Tokyo','Asia/Tokyo']);var root=document.getElementById('clock-list'),rows=[];C.forEach(function(x,i){var e=document.createElement('span');e.className='clock-entry';var t=document.createElement('span');t.className='clock-time';e.appendChild(document.createTextNode(x[0]+' '));e.appendChild(t);root.appendChild(e);if(i<C.length-1){var s=document.createElement('span');s.className='clock-sep';s.textContent='■';root.appendChild(s)}var f;try{f=new Intl.DateTimeFormat('en-GB',{timeZone:x[1],hour12:false,hour:'2-digit',minute:'2-digit'})}catch(err){f=null}var blocks='■■■■■■■■■';rows.push([t,f,blocks])});function tick(){var n=new Date();rows.forEach(function(r){if(r[1])r[0].textContent=r[1].format(n)+r[2]})}tick();setInterval(tick,1000)
-})();
-</script>
-<section id="elementary-code-introduction" aria-label="Elementary Code introduction">
-  <img src="elementary-code-introduction.jpeg" alt="Elementary Codeの紹介">
-</section>
+    function renderWorldClockStream() {
+      if (!worldStream || !window.ECWorldTimeWrap) return;
+      window.ECWorldTimeWrap.paintWorldTimeStream(worldStream, worldClockRows, formatWorldTime);
+    }
 
-<section id="media-air-news" aria-label="MEDIA AIR NEWS TOKYO">
-  <div class="news-inner">
-    <h2>MEDIA AIR NEWS｜TOKYO</h2>
-    <h3>今後のアプリ開発プラン［計画中］</h3>
-    <p>私たちは、将来AIを管理・識別するために必要なのは、人間をより鮮明に撮影する高性能カメラではなく、AI・デバイスを一意に識別する独自開発のAIコード「エレメンタリーコード（Elementary Code）」のような仕組みであると考えています。</p>
-    <p>AIは、人間を盗撮・監視する目的で利用されるべきではありません。</p>
-    <p>今後のアプリ開発では、高性能カメラによる人物撮影への依存を減らし、赤外線等による温度差・状態変化の検知と、AIコード「エレメンタリーコード」による即時識別を組み合わせる方式を計画しています。</p>
-    <p>人間の顔を千差万別な特徴として収集・解析し続けるのではなく、必要最小限のセンサー情報と一意のコードによって、AIやデバイスを識別・管理する考え方です。</p>
-    <p>また、人体を詳細に撮影・解析できる機器・部品等については、使用目的や技術基準を明確化し、盗撮・不正監視など規定外の使用に対して、将来的に厳格な法規制・罰則が整備されることが重要だと考えています。</p>
-    <p class="news-key">人を撮って識別するAIから、コードによってAI・デバイスを識別するAIへ。</p>
-    <p>AIコード「エレメンタリーコード」を基盤とした、プライバシーを守る次世代AI環境を目指します。</p>
-    <p class="news-note">※本内容は現在提供中の機能を示すものではなく、今後のアプリ開発に向けた計画・構想です。</p>
-  </div>
-</section>
-<section id="ai-code-comic" style="margin:0;padding:0;background:#061221"><img src="https://raw.githubusercontent.com/bdwr54frnh-source/elementarycode.tokyo/preview/tokyo-live-comic-clock/elementary_code_correct_8panel.png" alt="ELEMENTARY CODE 8コマ漫画（時計は静止表示・LIVE対応準備中）" style="display:block;width:100%;height:auto"></section>
-<section id="ec-explanation" style="padding:38px 20px 54px;background:#fff;color:#111">
-<div style="max-width:940px;margin:auto">
-<h2 style="font-size:clamp(27px,4vw,40px);margin:0 0 18px">エレメンタリーコード｜次世代の認証を目指して</h2>
-<p style="font-size:clamp(18px,2.2vw,23px);line-height:1.85">Elementary Code（エレメンタリーコード）は、電話番号やパスワードの入力に頼らず、対応するアプリと端末で接続直前にコードを確認する認証の仕組みとして開発を進めています。目指すのは、利用者の手間を減らし、相手との接続を素早く確認できる技術です。</p>
-<h3 style="font-size:clamp(22px,3vw,28px);margin:26px 0 10px">サッカー選手の写真と、本物の相手を確認する方法</h3>
-<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">たとえば有名なサッカー選手の顔写真が付いたアイコンを受け取ったとしても、写真だけでは、その選手本人から届いたものかどうかは分かりません。写真が本物であることと、送信者が本人であることは別の問題です。</p>
-<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">エレメンタリーコードが目指すのは、写真の見た目を鑑定することではありません。受け取ったアイコンに紐付く正規の接続先を、対応アプリによる呼び出しと接続前のコード照合で確認できる仕組みです。これは個人の身元確認ではなく、登録されたデバイスとコードの照合を目的としています。</p>
-<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.8">※個人の身元と結びつけるためのコードではありません。初回登録時はデバイスとAI CODEを紐付けます。コードの真正性確認は人の身元を証明するものではありません。これは開発中の仕組みの説明であり、現在提供中の機能を示すものではありません。</p>
-<h3 style="font-size:clamp(22px,3vw,28px);margin:26px 0 10px">高速転送・一致照合の参考測定</h3>
-<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">2026年10月10日、25桁と30桁の数字列をそれぞれ10万件、Linux・Pythonの単一プロセス内で代入・一致照合しました。25桁は平均<strong>0.14302マイクロ秒</strong>、30桁は平均<strong>0.14567マイクロ秒</strong>。どちらも10万件すべて一致し、生成した入力の重複は観測されませんでした。</p>
-<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">30桁の平均値を単純換算すると、1秒当たり約686万件のメモリ内代入・比較に相当します。基礎処理として高速ですが、実際の通信認証全体の処理速度を示すものではありません。</p>
-<h3 style="font-size:clamp(22px,3vw,28px);margin:26px 0 10px">一意性と安全性への取り組み</h3>
-<p style="font-size:clamp(18px,2vw,21px);line-height:1.85">同じコードが重複せず、適切な相手と接続できることを目標としています。今回の入力重複0件は試験したサンプル内での結果であり、数学的な一意性や第三者に対する安全性を証明するものではありません。</p>
-<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.8">※25桁と30桁は試験用の長さであり、製品本体の正式な桁数は未確定です。実際の端末間通信、世界時刻同期、暗号処理を含む認証時間は未測定です。生成方法や検証アルゴリズムなどの非公開技術情報は掲載していません。</p>
-<p><a href="elementary-code.html#speed-test" style="font-size:20px;font-weight:700;color:#111">測定条件と詳しい説明を見る →</a></p>
-</div></section>
-<footer style="padding:24px;text-align:center;background:#fff"><a href="https://waseda-inspection.com/">運営・お問い合わせ：早稲田インスペクション</a></footer>
-</body></html>
+    function renderWorldClocks() {
+      renderWorldClockStream();
+      if (!worldList) return;
+      worldList.innerHTML = "";
+      worldClockRows.forEach((row) => {
+        const el = document.createElement("a");
+        el.className = "row row-selectable";
+        el.href = "#world-clock-bottom";
+        el.innerHTML = "<span></span><span></span>";
+        el.children[0].textContent = row.name;
+        el.children[1].textContent = formatWorldTime(row.tz);
+        el.dataset.tz = row.tz;
+        el.dataset.name = row.name;
+        el.addEventListener("click", (event) => {
+          event.preventDefault();
+          selectWorldClock(row, true);
+        });
+        worldList.appendChild(el);
+      });
+      if (worldMeta) {
+        worldMeta.textContent = (copy[lang].wc_meta || "") + String(worldClockRows.length);
+      }
+      const defaultRow =
+        worldClockRows.find((r) => r.tz === "Asia/Tokyo") ||
+        worldClockRows.find((r) => r.name === "Japan") ||
+        worldClockRows[0];
+      if (defaultRow) selectWorldClock(defaultRow, false);
+    }
+
+    function tickWorldClocks() {
+      if (worldStream && window.ECWorldTimeWrap) {
+        window.ECWorldTimeWrap.updateStreamTimes(worldStream, worldClockRows, formatWorldTime);
+      }
+      if (!worldList) return;
+      worldList.querySelectorAll("[data-tz]").forEach((el) => {
+        if (el.children.length > 1) {
+          el.children[1].textContent = formatWorldTime(el.dataset.tz);
+        }
+      });
+      updateWorldClockBottom();
+    }
+
+    fetch("data/world-clocks-195.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("missing");
+        return res.json();
+      })
+      .then((rows) => {
+        worldClockRows = Array.isArray(rows) ? rows : [];
+        renderWorldClocks();
+        if (worldStream && window.ResizeObserver) {
+          worldStreamResizeObserver = new ResizeObserver(function () {
+            renderWorldClockStream();
+          });
+          worldStreamResizeObserver.observe(worldStream);
+        }
+        setInterval(tickWorldClocks, 30_000);
+      })
+      .catch(() => {
+        if (worldMeta) worldMeta.textContent = copy[lang].wc_fail;
+      });
+
+    document.getElementById("explorer-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("explorer-result").textContent = copy[lang].unavailable;
+    });
+
+    // 簡易コピーガード（完全防止ではない）。秘密・認証ロジックは置かない。
+    function isEditableTarget(target) {
+      if (!(target instanceof Element)) return false;
+      return Boolean(target.closest("input, textarea, [contenteditable='true']"));
+    }
+    document.addEventListener("contextmenu", (event) => {
+      if (!isEditableTarget(event.target)) event.preventDefault();
+    });
+    document.addEventListener("dragstart", (event) => {
+      if (event.target instanceof HTMLImageElement || event.target.closest(".protected-asset")) {
+        event.preventDefault();
+      }
+    });
+    document.addEventListener("copy", (event) => {
+      if (!isEditableTarget(event.target)) event.preventDefault();
+    });
+    document.addEventListener("cut", (event) => {
+      if (!isEditableTarget(event.target)) event.preventDefault();
+    });
+    document.querySelectorAll("img").forEach((img) => {
+      if (img.closest(".ec-comic-fullbleed")) return;
+      img.setAttribute("draggable", "false");
+      if (img.parentElement && img.parentElement.classList.contains("protected-asset")) return;
+      const wrap = document.createElement("span");
+      wrap.className = "protected-asset";
+      img.parentNode.insertBefore(wrap, img);
+      wrap.appendChild(img);
+    });
+  </script>
+  <script src="assets/ec-live-clock.js" defer></script>
+  <script src="assets/ec-world-time-wrap.js" defer></script>
+</body>
+</html>

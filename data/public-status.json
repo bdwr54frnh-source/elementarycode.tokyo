@@ -1,0 +1,45 @@
+{
+  "preview": true,
+  "rockyConfirmRequired": true,
+  "logicVersionPublic": "EC-PUBLIC-1",
+  "logicVersionInternalSeparated": true,
+  "systemStatus": "PREPARING",
+  "server": "SERVER_UNAVAILABLE",
+  "authenticityVerification": "UNAVAILABLE",
+  "duplicateIssuance": 0,
+  "officialDomain": "elementarycode.tokyo",
+  "icons": [
+    {
+      "id": "pure-white",
+      "name": "PURE WHITE",
+      "colorJa": "白",
+      "colorEn": "White",
+      "useJa": "発信アイコン（通話）",
+      "useEn": "Outbound call icon",
+      "unitJa": "1ダース（12個）",
+      "unitEn": "1 dozen (12)",
+      "priceStatus": "confirmed",
+      "dozenJpy": 220,
+      "unitHintJpy": 18.3,
+      "capJa": "未確定",
+      "capEn": "Undetermined",
+      "issued": 0,
+      "editionJa": "通常",
+      "editionEn": "Standard",
+      "physicalExists": true
+    }
+  ],
+  "firstSale": {
+    "iconId": "pure-white",
+    "name": "PURE WHITE",
+    "noteJa": "初回販売は PURE WHITE のみ。1ダース 220円。",
+    "noteEn": "First sale is PURE WHITE only. ¥220 per dozen."
+  },
+  "issuance": {
+    "pureWhiteIssued": 0,
+    "pureWhiteCap": null,
+    "lastIssuedAt": null,
+    "duplicates": 0,
+    "verificationLatencyMs": null
+  }
+}
